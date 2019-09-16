@@ -30,13 +30,15 @@ const PageLayout = ({ children, path }) => {
           ${normalize}
 
           body.dark {
-            background-color: black;
-            color: white;
+            background-color: rgb(36, 36, 46);
+            color: rgba(255, 255, 255, 0.8);
+            transition: 0.4s;
           }
 
           body.light {
             background-color: white;
-            color: black;
+            color: rgba(0, 0, 0, 0.8);
+            transition: 0.4s;
           }
 
           h1,

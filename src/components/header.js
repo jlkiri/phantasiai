@@ -31,32 +31,28 @@ const Header = ({ title, currentTheme, isIndex }) => {
   if (isIndex)
     return (
       <StyledIndexHeader>
-        <Toggle />
-        <Link to="/">
-          <h1>{title}</h1>
-        </Link>
-        <input
-          type="checkbox"
-          checked={currentTheme === "dark"}
-          onChange={e =>
+        <Toggle
+          currentTheme={currentTheme}
+          handleToggle={e =>
             window.__setPreferredTheme(e.target.checked ? "dark" : "light")
           }
         />
+        <Link to="/">
+          <h1>{title}</h1>
+        </Link>
       </StyledIndexHeader>
     )
   return (
     <StyledHeader>
-      <Toggle />
-      <Link to="/">
-        <h1>{title}</h1>
-      </Link>
-      <input
-        type="checkbox"
-        checked={currentTheme === "dark"}
-        onChange={e =>
+      <Toggle
+        currentTheme={currentTheme}
+        handleToggle={e =>
           window.__setPreferredTheme(e.target.checked ? "dark" : "light")
         }
       />
+      <Link to="/">
+        <h1>{title}</h1>
+      </Link>
     </StyledHeader>
   )
 }
