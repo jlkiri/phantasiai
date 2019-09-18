@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import normalize from "normalize.css"
-import { Global, css } from "@emotion/core"
+import { StaticQuery, graphql } from "gatsby"
+import styled from "@emotion/styled"
+import colors from "../../colors"
 import Header from "components/Header"
 import CenteredLayout from "./CenteredLayout"
 
@@ -15,51 +15,61 @@ const titleQuery = graphql`
   }
 `
 
-const PageLayout = ({ children, path }) => {
-  const { site } = useStaticQuery(titleQuery)
-  const [theme, setTheme] = useState(window.__theme)
+const ThemeWrapper = styled.div`
+  min-height: 100vh;
+  ${props =>
+    props.theme === "light"
+      ? `background-color: ${colors.lightWhiteBg};`
+      : `background-color: ${colors.darkPurpleBg};`}
+  ${props =>
+    props.theme === "light"
+      ? `color: ${colors.lightBlackTxt};`
+      : `color: ${colors.darkWhiteTxt};`}
+  transition: 0.3s;
 
-  useEffect(() => {
-    window.__onThemeChange = () => setTheme(window.__theme)
-  }, [])
+  a {
+    color: ${props =>
+      props.theme === "dark" ? `rgb(240, 178, 123)` : `rgb(80, 42, 184)`};
+    :hover {
+      text-decoration: none;
+    }
+  }
+`
 
-  return (
-    <CenteredLayout>
-      <Global
-        styles={css`
-          ${normalize}
+class PageLayout extends React.Component {
+  state = {
+    theme: null
+  }
 
-          body.dark {
-            background-color: rgb(36, 36, 46);
-            color: rgba(255, 255, 255, 0.8);
-            transition: 0.4s;
-          }
+  componentDidMount() {
+    this.setState({ theme: window.__theme })
+    window.__onThemeChange = () => {
+      this.setState({ theme: window.__theme })
+    }
+  }
 
-          body.light {
-            background-color: white;
-            color: rgba(0, 0, 0, 0.8);
-            transition: 0.4s;
-          }
-
-          h1,
-          h2,
-          h3,
-          h4,
-          h5,
-          h6,
-          p {
-            margin: 0;
-          }
-        `}
-      />
-      <Header
-        currentTheme={theme}
-        title={site.siteMetadata.title}
-        isIndex={path === "/"}
-      />
-      {children}
-    </CenteredLayout>
-  )
+  render() {
+    return (
+      <StaticQuery query={titleQuery}>
+        {data => {
+          return (
+            this.state.theme && (
+              <ThemeWrapper theme={this.state.theme}>
+                <CenteredLayout>
+                  <Header
+                    currentTheme={this.state.theme}
+                    title={data.site.siteMetadata.title}
+                    isIndex={this.props.path === "/"}
+                  />
+                  {this.props.children}
+                </CenteredLayout>
+              </ThemeWrapper>
+            )
+          )
+        }}
+      </StaticQuery>
+    )
+  }
 }
 
 export default PageLayout

@@ -2,20 +2,21 @@ import React from "react"
 import styled from "@emotion/styled"
 import sun from "assets/sun.svg"
 import moon from "assets/moon.svg"
+import colors from "../colors"
 
 const StyledSwitch = styled.label`
   position: relative;
   display: inline-block;
   width: 63px;
   height: 30px;
-  border: 1px solid rgba(220, 220, 232, 0.8);
+  border: 1px solid ${colors.weakWhite};
   border-radius: 34px;
   cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(36, 36, 46);
+  background-color: ${colors.lightPurpleBg};
   -webkit-transition: 0.3s;
   transition: 0.3s;
 
@@ -32,7 +33,7 @@ const Sun = styled.svg`
   top: 4px;
   width: 21px;
   height: 21px;
-  fill: rgb(232, 216, 67);
+  fill: ${colors.sunMoonYellow};
   transform: scale(1.5);
 `
 
@@ -40,9 +41,10 @@ const Moon = styled.svg`
   position: absolute;
   top: 5px;
   left: 5px;
+  bottom: 0;
   width: 21px;
   height: 21px;
-  fill: rgb(232, 216, 67);
+  fill: ${colors.sunMoonYellow};
 `
 
 const StyledSlider = styled.span`
@@ -51,7 +53,7 @@ const StyledSlider = styled.span`
   width: 26px;
   left: 1px;
   bottom: 2px;
-  background-color: rgb(220, 220, 232);
+  background-color: white;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   border-radius: 50%;
@@ -64,10 +66,10 @@ const StyledInput = styled.input`
     transform: translateX(35px);
   }
   :hover + ${StyledSlider} {
-    box-shadow: 0 0 4px 1px rgb(195, 197, 224);
+    box-shadow: 0 0 4px 1px ${colors.purpleShadow};
   }
   :active + ${StyledSlider} {
-    box-shadow: 0 0 4px 3px rgb(195, 197, 224);
+    box-shadow: 0 0 4px 3px ${colors.purpleShadow};
   }
 `
 

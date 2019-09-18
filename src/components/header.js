@@ -7,6 +7,11 @@ import Toggle from "components/Toggle"
 const commonHeaderStyle = css`
   display: flex;
   justify-content: space-between;
+  align-items: center;
+`
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
 `
 
 const StyledIndexHeader = styled.header`
@@ -15,6 +20,17 @@ const StyledIndexHeader = styled.header`
 
   h1 {
     font-size: 39px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    background: linear-gradient(
+      143deg,
+      rgba(155, 146, 236, 1) 0%,
+      rgba(240, 178, 123, 1) 51%,
+      rgba(208, 146, 198, 1) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
 `
 
@@ -24,35 +40,46 @@ const StyledHeader = styled.header`
 
   h1 {
     font-size: 36px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    background: linear-gradient(
+      143deg,
+      rgba(155, 146, 236, 1) 0%,
+      rgba(240, 178, 123, 1) 51%,
+      rgba(208, 146, 198, 1) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
 `
 
 const Header = ({ title, currentTheme, isIndex }) => {
+  const toggle = (
+    <Toggle
+      currentTheme={currentTheme}
+      handleToggle={e =>
+        window.__setPreferredTheme(e.target.checked ? "dark" : "light")
+      }
+    />
+  )
+
   if (isIndex)
     return (
-      <StyledIndexHeader>
-        <Toggle
-          currentTheme={currentTheme}
-          handleToggle={e =>
-            window.__setPreferredTheme(e.target.checked ? "dark" : "light")
-          }
-        />
-        <Link to="/">
+      <StyledIndexHeader theme={currentTheme}>
+        <StyledLink to="/">
           <h1>{title}</h1>
-        </Link>
+        </StyledLink>
+        {toggle}
       </StyledIndexHeader>
     )
+
   return (
-    <StyledHeader>
-      <Toggle
-        currentTheme={currentTheme}
-        handleToggle={e =>
-          window.__setPreferredTheme(e.target.checked ? "dark" : "light")
-        }
-      />
-      <Link to="/">
+    <StyledHeader theme={currentTheme}>
+      <StyledLink to="/">
         <h1>{title}</h1>
-      </Link>
+      </StyledLink>
+      {toggle}
     </StyledHeader>
   )
 }

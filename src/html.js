@@ -22,7 +22,6 @@ export default function HTML(props) {
                 function setTheme(newTheme) {
                   window.__theme = newTheme;
                   preferredTheme = newTheme;
-                  document.body.className = newTheme;
                   window.__onThemeChange(newTheme);
                 }
                 var preferredTheme;

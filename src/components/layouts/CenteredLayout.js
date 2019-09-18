@@ -18,8 +18,8 @@ const Centered = styled.div`
   }
 `
 
-const CenteredLayout = ({ children }) => {
-  return <Centered>{children}</Centered>
+const CenteredLayout = ({ theme, children }) => {
+  return <Centered className={theme}>{children}</Centered>
 }
 
 export default CenteredLayout

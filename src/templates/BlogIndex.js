@@ -1,15 +1,26 @@
 import React from "react"
 import PageLayout from "components/layouts/PageLayout"
+import IndexLayout from "components/layouts/IndexLayout"
 import { graphql, Link } from "gatsby"
+import styled from "@emotion/styled"
+
+const StyledPostLink = styled(Link)`
+  text-decoration: none;
+  font-size: 33px;
+`
 
 const BlogIndex = ({ data, path }) => {
   const { nodes: posts } = data.allMarkdownRemark
 
   return (
     <PageLayout path={path}>
-      {posts.map(post => (
-        <Link to={`${post.fields.slug}`}>{post.frontmatter.title}</Link>
-      ))}
+      <IndexLayout>
+        {posts.map(post => (
+          <StyledPostLink to={`${post.fields.slug}`}>
+            {post.frontmatter.title}
+          </StyledPostLink>
+        ))}
+      </IndexLayout>
     </PageLayout>
   )
 }

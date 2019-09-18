@@ -8,6 +8,7 @@ export default function Article({ data, path }) {
   return (
     <PageLayout path={path}>
       <PostLayout
+        path={path}
         title={frontmatter.title}
         date={frontmatter.date}
         html={html}

@@ -2,7 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 
 const StyledMarkdownContent = styled.article`
-  font-size: 21px;
+  font-size: 18px;
   p {
     margin-top: 18px;
   }
