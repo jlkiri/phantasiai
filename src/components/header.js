@@ -44,9 +44,9 @@ const StyledHeader = styled.header`
     font-weight: 900;
     background: linear-gradient(
       143deg,
-      rgba(155, 146, 236, 1) 0%,
-      rgba(240, 178, 123, 1) 51%,
-      rgba(208, 146, 198, 1) 100%
+      rgba(102, 86, 250, 1) 0%,
+      rgba(123, 237, 240, 1) 51%,
+      rgba(237, 29, 204, 1) 100%
     );
     background-clip: text;
     -webkit-background-clip: text;
@@ -54,7 +54,9 @@ const StyledHeader = styled.header`
   }
 `
 
-const Header = ({ title, currentTheme, isIndex }) => {
+const Header = ({ title, currentTheme, path }) => {
+  const isIndex = path === "/" || path === "/ru"
+  console.log(path)
   const toggle = (
     <Toggle
       currentTheme={currentTheme}
@@ -64,10 +66,12 @@ const Header = ({ title, currentTheme, isIndex }) => {
     />
   )
 
+  console.log(title)
+
   if (isIndex)
     return (
       <StyledIndexHeader theme={currentTheme}>
-        <StyledLink to="/">
+        <StyledLink to={path}>
           <h1>{title}</h1>
         </StyledLink>
         {toggle}
@@ -76,7 +80,7 @@ const Header = ({ title, currentTheme, isIndex }) => {
 
   return (
     <StyledHeader theme={currentTheme}>
-      <StyledLink to="/">
+      <StyledLink to={path}>
         <h1>{title}</h1>
       </StyledLink>
       {toggle}

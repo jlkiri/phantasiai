@@ -26,6 +26,9 @@ exports.createPages = async ({ actions, graphql }) => {
             fields {
               slug
             }
+            frontmatter {
+              language
+            }
           }
         }
       }
@@ -39,11 +42,17 @@ exports.createPages = async ({ actions, graphql }) => {
 
   actions.createPage({
     path: "/",
-    component: path.resolve(`src/templates/BlogIndex.js`)
+    component: path.resolve(`src/templates/BlogIndex.js`),
+    context: { language: "en" }
+  })
+
+  actions.createPage({
+    path: "/ru",
+    component: path.resolve(`src/templates/BlogIndex.js`),
+    context: { language: "ru" }
   })
 
   data.allMarkdownRemark.edges.forEach(({ node }) => {
-    console.log(node.fields.slug)
     actions.createPage({
       path: node.fields.slug,
       component: path.resolve(`src/templates/Article.js`),

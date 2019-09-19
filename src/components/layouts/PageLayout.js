@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react"
-import { StaticQuery, graphql } from "gatsby"
+import React from "react"
 import styled from "@emotion/styled"
+import { StaticQuery, graphql } from "gatsby"
 import colors from "../../colors"
 import Header from "components/Header"
 import CenteredLayout from "./CenteredLayout"
 
 const titleQuery = graphql`
-  query SiteTitleQuery {
+  query TitleQuery {
     site {
       siteMetadata {
         title
@@ -42,6 +42,7 @@ class PageLayout extends React.Component {
   }
 
   componentDidMount() {
+    console.log("mounted")
     this.setState({ theme: window.__theme })
     window.__onThemeChange = () => {
       this.setState({ theme: window.__theme })
@@ -59,7 +60,7 @@ class PageLayout extends React.Component {
                   <Header
                     currentTheme={this.state.theme}
                     title={data.site.siteMetadata.title}
-                    isIndex={this.props.path === "/"}
+                    path={this.props.path}
                   />
                   {this.props.children}
                 </CenteredLayout>

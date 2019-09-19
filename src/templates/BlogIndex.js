@@ -1,33 +1,36 @@
 import React from "react"
 import PageLayout from "components/layouts/PageLayout"
-import IndexLayout from "components/layouts/IndexLayout"
-import { graphql, Link } from "gatsby"
-import styled from "@emotion/styled"
-
-const StyledPostLink = styled(Link)`
-  text-decoration: none;
-  font-size: 33px;
-`
+import Main from "components/Main"
+import PostBriefLayout from "components/layouts/PostBriefLayout"
+import { graphql } from "gatsby"
 
 const BlogIndex = ({ data, path }) => {
   const { nodes: posts } = data.allMarkdownRemark
+  const { siteMetadata } = data.site
+  console.log("Title: ", siteMetadata.title)
 
   return (
-    <PageLayout path={path}>
-      <IndexLayout>
+    <PageLayout blogTitle={siteMetadata.title} path={path}>
+      <Main>
         {posts.map(post => (
-          <StyledPostLink to={`${post.fields.slug}`}>
-            {post.frontmatter.title}
-          </StyledPostLink>
+          <PostBriefLayout
+            link={post.fields.slug}
+            title={post.frontmatter.title}
+            date={post.frontmatter.date}
+            spoiler={post.frontmatter.spoiler}
+          />
         ))}
-      </IndexLayout>
+      </Main>
     </PageLayout>
   )
 }
 
 export const indexQuery = graphql`
-  query PostLinks {
-    allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
+  query PostLinks($language: String!) {
+    allMarkdownRemark(
+      filter: { frontmatter: { language: { eq: $language } } }
+      sort: { order: DESC, fields: frontmatter___date }
+    ) {
       nodes {
         fields {
           slug
@@ -35,7 +38,13 @@ export const indexQuery = graphql`
         frontmatter {
           title
           date(formatString: "MMMM DD, YYYY")
+          spoiler
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
       }
     }
   }
