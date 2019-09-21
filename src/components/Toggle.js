@@ -78,8 +78,8 @@ const Moonimg = styled.img`
 export default function Toggle({ currentTheme, handleToggle }) {
   return (
     <StyledSwitch htmlFor="toggle">
-      <Moon src={moon} />
-      <Sun src={sun} />
+      <Moon src={moon} alt="Moon icon (dark mode)" />
+      <Sun src={sun} alt="Sun icon (light mode)" />
       <StyledInput
         id="toggle"
         aria-label="Switch between dark and light mode"
