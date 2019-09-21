@@ -12,7 +12,7 @@ const StyledSwitch = styled.label`
   border: 1px solid ${colors.weakWhite};
   border-radius: 34px;
   cursor: pointer;
-  top: 0;
+  top: 3px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -45,6 +45,7 @@ const Moon = styled.svg`
   width: 21px;
   height: 21px;
   fill: ${colors.sunMoonYellow};
+  transition: 1s;
 `
 
 const StyledSlider = styled.span`
@@ -75,7 +76,7 @@ const StyledInput = styled.input`
 
 export default function Toggle({ currentTheme, handleToggle }) {
   return (
-    <StyledSwitch>
+    <StyledSwitch for="toggle">
       <Moon viewBox="0 0 24 24">
         <use href={`${moon}#moon`} />
       </Moon>
@@ -83,6 +84,8 @@ export default function Toggle({ currentTheme, handleToggle }) {
         <use href={`${sun}#sun`} />
       </Sun>
       <StyledInput
+        id="toggle"
+        aria-label="Switch between dark and light mode"
         onChange={handleToggle}
         checked={currentTheme === "dark"}
         type="checkbox"

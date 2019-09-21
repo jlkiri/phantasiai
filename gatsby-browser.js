@@ -7,3 +7,4 @@
 // You can delete this file if you're not using it
 import "normalize.css"
 import "./global.css"
+import "prismjs/themes/prism-tomorrow.css"

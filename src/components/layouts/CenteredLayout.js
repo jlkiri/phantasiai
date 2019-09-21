@@ -5,16 +5,18 @@ const Centered = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 85vw;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 51px;
+  padding-right: 15px;
+  padding-left: 15px;
 
   @media screen and (min-width: 768px) {
-    max-width: 70vw;
+    max-width: 72vw;
   }
 
   @media screen and (min-width: 1024px) {
-    max-width: 50vw;
+    max-width: 52vw;
   }
 `
 

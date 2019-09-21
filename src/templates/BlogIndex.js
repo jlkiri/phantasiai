@@ -3,14 +3,17 @@ import PageLayout from "components/layouts/PageLayout"
 import Main from "components/Main"
 import PostBriefLayout from "components/layouts/PostBriefLayout"
 import { graphql } from "gatsby"
+import SEO from "components/SEO"
+import Bio from "components/Bio"
 
 const BlogIndex = ({ data, path }) => {
   const { nodes: posts } = data.allMarkdownRemark
   const { siteMetadata } = data.site
-  console.log("Title: ", siteMetadata.title)
 
   return (
     <PageLayout blogTitle={siteMetadata.title} path={path}>
+      <SEO />
+      <Bio />
       <Main>
         {posts.map(post => (
           <PostBriefLayout

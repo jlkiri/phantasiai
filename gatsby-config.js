@@ -1,22 +1,37 @@
 module.exports = {
   siteMetadata: {
-    title: `Blogtitle`,
-    description: `JUST DO IT`,
-    author: `@jlkiri`
+    title: `phantasia[i]`,
+    description: `Personal blog by Kirill Vasiltsov`,
+    author: `Kirill Vasiltsov`,
+    siteUrl: "http://localhost:8000",
+    social: {
+      twitter: "@jlkiri"
+    }
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`
-      }
-    },
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: ["gatsby-remark-autolink-headers"]
+        plugins: [
+          "gatsby-remark-smartypants",
+          "gatsby-remark-autolink-headers",
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 735
+            }
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              // CSS class suffix to be used for produced `<pre/>` blocks.
+              // Default value is "default", which adds "cm-s-default" class.
+              // This class name matches
+            }
+          }
+        ]
       }
     },
     {
@@ -29,13 +44,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `blogtitle`,
+        short_name: `blogtitle`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
+        display: `browser`,
+        icon: `src/assets/icon.png`,
+        legacy: false
       }
     },
     `gatsby-plugin-emotion`
