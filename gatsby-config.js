@@ -44,8 +44,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `blogtitle`,
-        short_name: `blogtitle`,
+        name: `phantasia[i]`,
+        short_name: `phantasia`,
         start_url: `/`,
         display: `browser`,
         icon: `src/assets/icon.png`,

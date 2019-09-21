@@ -1,7 +1,7 @@
 {
-  "name": "demerged-me",
+  "name": "phantasiai",
   "private": true,
-  "description": "New blog",
+  "description": "Personal blog by Kirill Vasiltsov",
   "version": "0.1.0",
   "author": "Kirill Vasiltsov",
   "dependencies": {
@@ -15,7 +15,6 @@
     "gatsby-plugin-react-helmet": "^3.1.7",
     "gatsby-plugin-sharp": "^2.2.25",
     "gatsby-remark-autolink-headers": "^2.1.10",
-    "gatsby-remark-codemirror": "^0.4.0",
     "gatsby-remark-images": "^3.1.23",
     "gatsby-remark-prismjs": "^3.3.14",
     "gatsby-remark-smartypants": "^2.1.9",
