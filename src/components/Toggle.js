@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
-import sun from "assets/sun.svg"
-import moon from "assets/moon.svg"
+import sun from "../assets/sun.svg"
+import moon from "../assets/moon.svg"
 import colors from "../colors"
 
 const StyledSwitch = styled.label`
@@ -27,25 +27,21 @@ const StyledSwitch = styled.label`
   }
 `
 
-const Sun = styled.svg`
+const Sun = styled.img`
   position: absolute;
   right: 5px;
-  top: 4px;
+  top: 5px;
   width: 21px;
   height: 21px;
-  fill: ${colors.sunMoonYellow};
-  transform: scale(1.5);
 `
 
-const Moon = styled.svg`
+const Moon = styled.img`
   position: absolute;
-  top: 5px;
+  top: 4px;
   left: 5px;
   bottom: 0;
   width: 21px;
   height: 21px;
-  fill: ${colors.sunMoonYellow};
-  transition: 1s;
 `
 
 const StyledSlider = styled.span`
@@ -74,15 +70,16 @@ const StyledInput = styled.input`
   }
 `
 
+const Moonimg = styled.img`
+  width: 25px;
+  height: 25px;
+`
+
 export default function Toggle({ currentTheme, handleToggle }) {
   return (
     <StyledSwitch htmlFor="toggle">
-      <Moon viewBox="0 0 24 24">
-        <use xlinkHref={`${moon}#moon`} />
-      </Moon>
-      <Sun viewBox="0 0 32 32">
-        <use xlinkHref={`${sun}#sun`} />
-      </Sun>
+      <Moon src={moon} />
+      <Sun src={sun} />
       <StyledInput
         id="toggle"
         aria-label="Switch between dark and light mode"

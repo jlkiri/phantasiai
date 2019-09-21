@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import styled from "@emotion/styled"
-import profilePic from "../assets/profile-pic.jpg"
+import profilePic from "assets/profile-pic.jpg"
 import { ThemeContext } from "./layouts/PageLayout"
 import colors from "../colors"
 
