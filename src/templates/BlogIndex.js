@@ -17,6 +17,7 @@ const BlogIndex = ({ data, path }) => {
       <Main>
         {posts.map(post => (
           <PostBriefLayout
+            key={post.id}
             link={post.fields.slug}
             title={post.frontmatter.title}
             date={post.frontmatter.date}
@@ -35,6 +36,7 @@ export const indexQuery = graphql`
       sort: { order: DESC, fields: frontmatter___date }
     ) {
       nodes {
+        id
         fields {
           slug
         }

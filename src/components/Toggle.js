@@ -76,12 +76,12 @@ const StyledInput = styled.input`
 
 export default function Toggle({ currentTheme, handleToggle }) {
   return (
-    <StyledSwitch for="toggle">
+    <StyledSwitch htmlFor="toggle">
       <Moon viewBox="0 0 24 24">
-        <use href={`${moon}#moon`} />
+        <use xlinkHref={`${moon}#moon`} />
       </Moon>
       <Sun viewBox="0 0 32 32">
-        <use href={`${sun}#sun`} />
+        <use xlinkHref={`${sun}#sun`} />
       </Sun>
       <StyledInput
         id="toggle"

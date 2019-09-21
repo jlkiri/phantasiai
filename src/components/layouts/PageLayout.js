@@ -37,7 +37,6 @@ class PageLayout extends React.Component {
   }
 
   componentDidMount() {
-    console.log("mounted")
     this.setState({ theme: window.__theme })
     window.__onThemeChange = () => {
       this.setState({ theme: window.__theme })
