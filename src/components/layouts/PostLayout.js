@@ -40,6 +40,15 @@ const StyledMarkdownContent = styled.article`
       text-decoration: none;
     }
   }
+
+  code.language-text {
+    font-size: 16px;
+    background-color: ${props =>
+      props.theme === "dark"
+        ? `${colors.darkCodeText}`
+        : `${colors.lightCodeText}`};
+    color: ${props => (props.theme === "dark" ? "white" : `black`)};
+  }
 `
 
 const StyledHeader = styled.header`
