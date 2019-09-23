@@ -1,11 +1,3 @@
 {
-  "version": 2,
-  "alias": ["www.phantasiai.dev", "demerged.me", "www.demerged.me"],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "status": 301,
-      "headers": { "Location": "https://phantasiai.dev/$1" }
-    }
-  ]
+  "version": 2
 }
