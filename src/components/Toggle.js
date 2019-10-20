@@ -70,11 +70,6 @@ const StyledInput = styled.input`
   }
 `
 
-const Moonimg = styled.img`
-  width: 25px;
-  height: 25px;
-`
-
 export default function Toggle({ currentTheme, handleToggle }) {
   return (
     <StyledSwitch htmlFor="toggle">

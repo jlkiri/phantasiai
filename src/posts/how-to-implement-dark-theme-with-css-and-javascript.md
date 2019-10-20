@@ -86,7 +86,7 @@ Now your page automatically adjusts to user preferences!
 
 ### Add a dark/light theme toggle
 
-Ideally, we also need to give our users a way to change the color theme while browsing. This is achievable with a simple toggle somewhere on your page. There is a [very good guide on how to style your toggle](https://www.w3schools.com/howto/howto_css_switch.asp) but for the sake of simplicity I will use a button here.
+Ideally, we also need to give our users a way to change the color theme while browsing. This is achievable with a simple toggle somewhere on your page. There is a [very good guide on how to style your toggle](https://www.w3schools.com/howto/howto_css_switch.asp) but for the sake of simplicity I will use a button here. You can see an example of a custom toggle switch [on my blog](https://phantasiai.dev/).
 
 First we need to add a button.
 

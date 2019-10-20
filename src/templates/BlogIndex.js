@@ -12,7 +12,7 @@ const BlogIndex = ({ data, path }) => {
 
   return (
     <PageLayout blogTitle={siteMetadata.title} path={path}>
-      <SEO />
+      <SEO index />
       <Bio />
       <Main>
         {posts.map(post => (
