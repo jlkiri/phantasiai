@@ -1,10 +1,20 @@
 import React from "react"
+import styled from "@emotion/styled"
 import PageLayout from "components/layouts/PageLayout"
 import Main from "components/Main"
 import PostBriefLayout from "components/layouts/PostBriefLayout"
 import { graphql } from "gatsby"
 import SEO from "components/SEO"
 import Bio from "components/Bio"
+
+const LinkBlock = styled.div`
+  margin-top: 35px;
+`
+
+const StyledRSSLink = styled.a`
+  color: orange;
+  font-size: 20px;
+`
 
 const BlogIndex = ({ data, path }) => {
   const { nodes: posts } = data.allMarkdownRemark
@@ -24,6 +34,9 @@ const BlogIndex = ({ data, path }) => {
             spoiler={post.frontmatter.spoiler}
           />
         ))}
+        <LinkBlock>
+          <StyledRSSLink href="/rss.xml">rss</StyledRSSLink>
+        </LinkBlock>
       </Main>
     </PageLayout>
   )
