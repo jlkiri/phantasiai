@@ -35,7 +35,13 @@ const BlogIndex = ({ data, path }) => {
           />
         ))}
         <LinkBlock>
-          <StyledRSSLink href="/rss.xml">rss</StyledRSSLink>
+          <StyledRSSLink
+            href="/rss.xml"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            rss
+          </StyledRSSLink>
         </LinkBlock>
       </Main>
     </PageLayout>

@@ -3,7 +3,7 @@ module.exports = {
     title: `phantasia[i]`,
     description: `Personal blog by Kirill Vasiltsov`,
     author: `Kirill Vasiltsov`,
-    siteUrl: "http://localhost:8000",
+    siteUrl: "https://phantasiai.dev/",
     social: {
       twitter: "@jlkiri"
     }
