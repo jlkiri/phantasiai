@@ -107,7 +107,7 @@ In the second case, Merge needs a new definition if we want it to be truly recur
 3. `MERGE([{c, {a, b}}, d])`
 4. `MERGE([{d, {c, {a, b}}}])`
 
-Note again that even when a function is recursive, in the physical world (of classical computers, at least) it needs to know how many times it should be applied, because otherwise it will apply infinitely, which is not possible with limited memory. The number of times MERGE can probably be easily derived from the size of the collection that needs to be merged.
+Note again that even when a function is recursive, in the physical world (of classical computers, at least) it needs to know how many times it should be applied, because otherwise it will apply infinitely, which is not possible with limited memory. The number of times MERGE should apply can probably be easily derived from the size of the collection that needs to be merged.
 
 ## What matters
 
