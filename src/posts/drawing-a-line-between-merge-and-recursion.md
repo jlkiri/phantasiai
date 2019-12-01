@@ -1,7 +1,7 @@
 ---
 title: Drawing a line between Merge and recursion
 date: "2019-12-01"
-spoiler: huh
+spoiler: Merge is not really recursive.
 language: en
 ---
 
