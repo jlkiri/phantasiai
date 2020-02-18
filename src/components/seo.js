@@ -87,6 +87,7 @@ function SEO({ description, index, slug, meta, title, lang = "en" }) {
       ].concat(meta)}
     >
       {index && <link rel="canonical" href="https://phantasiai.dev" />}
+      <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
       <link href="https://twitter.com/maaiiya8" rel="me" />
       <link href="https://github.com/jlkiri" rel="me" />
     </Helmet>
