@@ -50,8 +50,9 @@ const Bio = () => {
       <StyledDescription>
         {`Personal blog by `}
         <StyledExternalLink
+          rel="me"
           theme={theme}
-          href="https://mobile.twitter.com/maaiiya8"
+          href="https://twitter.com/maaiiya8"
         >
           Kirill Vasiltsov
         </StyledExternalLink>
