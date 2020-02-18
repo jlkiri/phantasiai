@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import PageLayout from "components/layouts/PageLayout"
 import PostLayout from "components/layouts/PostLayout"
-import SEO from "components/SEO"
+import SEO from "components/seo"
 
 export default function Article({ data, path }) {
   const { frontmatter, fields, html } = data.markdownRemark

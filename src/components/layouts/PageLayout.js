@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import { StaticQuery, graphql } from "gatsby"
 import Helmet from "react-helmet"
 import colors from "../../colors"
-import Header from "components/Header"
+import Header from "components/header"
 import CenteredLayout from "./CenteredLayout"
 
 const titleQuery = graphql`

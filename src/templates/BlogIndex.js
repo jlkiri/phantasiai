@@ -4,7 +4,7 @@ import PageLayout from "components/layouts/PageLayout"
 import Main from "components/Main"
 import PostBriefLayout from "components/layouts/PostBriefLayout"
 import { graphql } from "gatsby"
-import SEO from "components/SEO"
+import SEO from "components/seo"
 import Bio from "components/Bio"
 
 const LinkBlock = styled.div`
