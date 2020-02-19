@@ -11,6 +11,8 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <link href="https://twitter.com/maaiiya8" rel="me" />
+        <link href="https://github.com/jlkiri" rel="me" />
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
