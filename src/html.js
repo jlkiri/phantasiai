@@ -11,6 +11,14 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <link
+          rel="webmention"
+          href="https://webmention.io/phantasiai.dev/webmention"
+        />
+        <link
+          rel="pingback"
+          href="https://webmention.io/phantasiai.dev/xmlrpc"
+        />
         <link href="https://twitter.com/maaiiya8" rel="me" />
         <link href="https://github.com/jlkiri" rel="me" />
         {props.headComponents}
