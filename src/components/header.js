@@ -15,19 +15,11 @@ const Header = ({ title, isRoot, rootPath, currentTheme, path }) => {
 
   if (isRoot)
     return (
-      <header theme={currentTheme}>
+      <header className="pb-4">
         <Link to={rootPath}>
-          <h1>{title}</h1>
+          <h1 className="font-extrabold font-mono font text-2xl">{title}</h1>
         </Link>
-        {toggle}
-        <div theme={currentTheme}>
-          <Link alt="English version" to="/">
-            EN
-          </Link>
-          <Link alt="Russian version" to="/ru">
-            RU
-          </Link>
-        </div>
+        <h3 className="font-serif">Personal blog by Kirill Vasiltsov</h3>
       </header>
     )
 
@@ -36,7 +28,6 @@ const Header = ({ title, isRoot, rootPath, currentTheme, path }) => {
       <Link to={rootPath}>
         <h1>{title}</h1>
       </Link>
-      {toggle}
     </header>
   )
 }

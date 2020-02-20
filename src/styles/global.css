@@ -1,5 +1,18 @@
 @tailwind base;
 
+:root {
+  --secondary: white;
+  --primary: #000000;
+  --link: #d36150;
+  @apply subpixel-antialiased;
+}
+
+[data-theme="dark"] {
+  --secondary: #243039;
+  --primary: #f7fafc;
+  --link: #ea6c59;
+}
+
 /* lora-regular - latin */
 @font-face {
   font-family: "Lora";

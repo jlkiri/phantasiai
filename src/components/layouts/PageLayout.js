@@ -42,17 +42,6 @@ class PageLayout extends React.Component {
           return (
             this.state.theme && (
               <ThemeContext.Provider value={{ theme: this.state.theme }}>
-                <Helmet
-                  meta={[
-                    {
-                      name: "theme-color",
-                      content:
-                        this.state.theme === "dark"
-                          ? `${colors.darkPurpleBg}`
-                          : `${colors.lightWhiteBg}`
-                    }
-                  ]}
-                />
                 <CenteredLayout>
                   <Header
                     currentTheme={this.state.theme}
