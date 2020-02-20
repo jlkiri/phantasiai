@@ -61,7 +61,7 @@ That is, of course, if we want to be really pedantic. But since the supposedly u
 
 On the other hand, the _structure_ that can be produced by repeated application of Merge _is_ formally recursive. Just like a tree can be composed of leaves or smaller trees, a structure produced by Merge can either contain two "atoms" (e.g. lexical items) or an atom and a set that itself contains two atoms (or an atom and another set) etc. In a programming language which allows definition of recursive data structures (e.g. Haskell) it can be defined like this:
 
-```haskell
+```
 data SyntacticObject a = Atom a | Set a (SyntacticObject a)
 -- where a is a type of an atom
 ```
@@ -85,7 +85,7 @@ But suppose that recursion indeed plays a big role in human language. I see then
 
 In the first case, we need to look for some more general ability to apply any function a potentially unbounded number of times. As far as I know, recursion can actually be seen as a _self-referential composition_ of functions. That is, there is nothing extraordinary about recursion, just like there is nothing extraordinary about function composition. When we compose two functions `f` and `g` we produce another function `h` such that when it is applied to `x`, `x` first becomes an input to `f` and then its output becomes an input to `g`. If `f` and `g` are the same function then we get the same result by their combination as if `f` itself was defined recursively. And combination itself is nothing more than yet another function that produces this behaviour when applied to two functions. We can come up with a function `applyTimes` that would keep combining another function `f` with itself an arbitrary number of times. For no specific reason the idea can be expressed in Haskell like this:
 
-```haskell
+```
 applyTimes 0 f arg = arg
 applyTimes n f arg = f . applyTimes (n-1) f $ arg
 -- where (.) is a function that combines two of its arguments
@@ -93,7 +93,7 @@ applyTimes n f arg = f . applyTimes (n-1) f $ arg
 
 Thus if we want to combine some function `f` 4 times we basically get this result:
 
-```haskell
+```
 applyTimes 4 f arg = f . f . f . f $ arg
 -- or in a more familiar notation f(f(f(f(arg))))
 ```

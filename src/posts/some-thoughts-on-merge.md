@@ -37,7 +37,7 @@ merge(x,y) = {x, y}
 
 This reads: "for _any_ `x` and `y`, the product of their Merge is a set `{x, y}`". As I mentioned above, this cannot be true because not any `x` and `y` are of the same **type**. The original definition of Merge quite explicitly constrains the types of `x` and `y` to lexical items. To make this explicit in our formal definition we would write something like this:
 
-```haskell
+```
 (LI x, LI y) => merge(x,y) = {x, y}
 -- where LI stands for lexical item
 ```
