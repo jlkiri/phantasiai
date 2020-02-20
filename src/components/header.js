@@ -1,9 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 import Toggle from "components/Toggle"
-import colors from "../colors"
 
-const Header = ({ title, isRoot, rootPath, currentTheme, path }) => {
+const Header = ({ title, isRoot, rootPath, currentTheme }) => {
   const toggle = (
     <Toggle
       currentTheme={currentTheme}
@@ -13,21 +12,25 @@ const Header = ({ title, isRoot, rootPath, currentTheme, path }) => {
     />
   )
 
+  const headerClass = "font-extrabold inline font-mono"
+
   if (isRoot)
     return (
-      <header className="pb-4">
+      <header className="relative pb-4 items-center justify-between lg:flex">
         <Link to={rootPath}>
-          <h1 className="font-extrabold font-mono font text-2xl">{title}</h1>
+          <h1 className={headerClass}>{title}</h1>
         </Link>
-        <h3 className="font-serif">Personal blog by Kirill Vasiltsov</h3>
+        <h3 className="font-serif">Blog by Kirill Vasiltsov</h3>
+        {toggle}
       </header>
     )
 
   return (
-    <header theme={currentTheme}>
+    <header>
       <Link to={rootPath}>
-        <h1>{title}</h1>
+        <h2 className={headerClass}>{title}</h2>
       </Link>
+      {toggle}
     </header>
   )
 }

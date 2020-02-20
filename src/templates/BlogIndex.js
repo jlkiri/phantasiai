@@ -14,8 +14,7 @@ const BlogIndex = ({ data, path }) => {
     <GlobalCSSLayout>
       <PageLayout blogTitle={siteMetadata.title} path={path}>
         <SEO index />
-        <Bio />
-        <main>
+        <main className="pb-4">
           {posts.map(post => (
             <PostBriefLayout
               key={post.id}
@@ -36,6 +35,7 @@ const BlogIndex = ({ data, path }) => {
             </a>
           </div>
         </main>
+        <Bio />
       </PageLayout>
     </GlobalCSSLayout>
   )

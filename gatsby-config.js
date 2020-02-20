@@ -5,13 +5,14 @@ module.exports = {
     author: `Kirill Vasiltsov`,
     siteUrl: "https://phantasiai.dev/",
     social: {
-      twitter: "@jlkiri"
+      twitter: "@jlkiri",
+      qiita: "https://qiita.com/jlkiri",
+      github: "https://github.com/jlkiri"
     }
   },
   plugins: [
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
