@@ -29,7 +29,7 @@ body.light {
 
 Ideally, all of your colors would be defined here. Next, we need to add a default class to the `body` element. If you want your default theme to be light, your HTML would look like this:
 
-```html{1}
+```html
 <body class="light">
   <!--your markup-->
 </body>
@@ -106,7 +106,7 @@ document.querySelector("#toggle").addEventListener("click", () => {
 
 There is a problem, however. If your website consists of several pages, the next page your users go to will not remember the theme that they chose with a toggle on the previous page. To fix that, we need to leverage local storage. Fortunately, this is a matter of adding few lines to the script above!
 
-```javascript{1,3-5,11-13,23}
+```javascript
 let preferredTheme
 
 try {
@@ -139,7 +139,7 @@ And this is it!
 
 In case you want to somehow synchronize state of a component with the current theme, you may want to add to the script above a global function like `onThemeChange`.
 
-```javascript{1,6}
+```javascript
 window.__onThemeChange = function() {}
 
 window.__setPreferredTheme = function(newTheme) {

@@ -29,7 +29,7 @@ Usually, when we download something we only care about two states: loading and l
 
 However, if we update the progress the React way (by calling `setState`), it can result in a lot of CPU work, so in this particular case it may be better to use a `ref` and set its value manually. For example, we can divide the currently downloaded bytes by the total size of the file and calculate the percentage. Below is a minimal example of how to do it (the creation of `ref` and component logic is omitted):
 
-```javascript{20}
+```javascript
 fetch(url)
   .then(response => {
     const contentLength = response.headers.get("content-length")

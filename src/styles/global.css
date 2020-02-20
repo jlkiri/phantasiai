@@ -178,7 +178,7 @@ h2 {
 }
 
 h3 {
-  @apply text-xl;
+  @apply text-xl font-bold leading-9;
 }
 
 article a,
@@ -204,6 +204,26 @@ article p:last-child {
 
 article h2 {
   @apply pb-4 pt-8;
+}
+
+article h3 {
+  @apply mb-4 mt-8;
+}
+
+pre.shiki {
+  @apply -mx-4 p-4 rounded-lg mb-4 text-sm;
+}
+
+a.anchor {
+  @apply border-none;
+}
+
+a.anchor svg {
+  @apply fill-current;
+  @apply absolute;
+  visibility: visible;
+  top: 8px;
+  right: 15px;
 }
 
 @tailwind components;

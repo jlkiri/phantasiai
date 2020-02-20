@@ -27,8 +27,9 @@ module.exports = {
             }
           },
           {
-            resolve: `gatsby-remark-prismjs`,
+            resolve: `gatsby-remark-shiki`,
             options: {
+              useBackground: true
               // CSS class suffix to be used for produced `<pre/>` blocks.
               // Default value is "default", which adds "cm-s-default" class.
               // This class name matches
