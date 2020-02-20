@@ -12,6 +12,7 @@ module.exports = {
         secondary: `var(--secondary)`,
         primary: `var(--primary)`,
         link: `var(--link)`,
+        aux: `var(--aux)`,
         gray: {
           100: "#EAEBEC",
           200: "#C9CDCF",
