@@ -7,7 +7,6 @@ const Bio = () => {
   const { theme } = useContext(ThemeContext)
   return (
     <div>
-      <img alt="Profile picture" src={profilePic} />
       <p>
         {`Personal blog by `}
         <a rel="me" theme={theme} href="https://twitter.com/maaiiya8">
