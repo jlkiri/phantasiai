@@ -4,6 +4,7 @@
   --secondary: white;
   --primary: #000000;
   --link: #d36150;
+  --aux: #28353f;
   @apply subpixel-antialiased;
 }
 
@@ -11,6 +12,8 @@
   --secondary: #243039;
   --primary: #f7fafc;
   --link: #ea6c59;
+  --aux: #c9cdcf;
+  @apply subpixel-antialiased;
 }
 
 @responsive {
@@ -176,6 +179,19 @@ h2 {
 
 h3 {
   @apply text-xl;
+}
+
+article a,
+article + a {
+  @apply text-link;
+  @apply inline-block;
+  @apply border-solid border-b-2 border-red-300;
+  @apply duration-200;
+}
+
+article + a:hover,
+article a:hover {
+  @apply border-red-600;
 }
 
 article p {

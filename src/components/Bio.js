@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 const SVGIcon = ({ children, link, text }) => (
   <div className="flex items-center flex-col">
     <a className="text-link underline" href={link}>
-      <span className="inline-block pb-2">{text}</span>
+      <span className="font-bold inline-block pb-2">{text}</span>
     </a>
     {children}
   </div>

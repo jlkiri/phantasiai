@@ -15,13 +15,10 @@ const PostLayout = ({ title, path, date, html }) => {
           className="font-serif text-lg"
           dangerouslySetInnerHTML={{ __html: html }}
         />
+        <Link className="mb-8" to={rootPath}>
+          {"<<< Back to top page"}
+        </Link>
       </main>
-      <Link
-        className="inline-block text-xl text-link underline pb-8"
-        to={rootPath}
-      >
-        {"<<< Back to top page"}
-      </Link>
       <Bio />
     </>
   )

@@ -12,15 +12,18 @@ const Header = ({ title, isRoot, rootPath, currentTheme }) => {
     />
   )
 
-  const headerClass = "font-extrabold inline font-mono bg-gradient"
+  const headerClass =
+    "font-extrabold inline-block font-mono bg-gradient mb-3 lg:mb-0"
 
   if (isRoot)
     return (
-      <header className="relative pb-8 items-center justify-between lg:flex">
+      <header className="relative pb-12 items-center justify-between lg:flex">
         <Link to={rootPath}>
           <h1 className={headerClass}>{title}</h1>
         </Link>
-        <h3 className="font-serif">Blog by Kirill Vasiltsov</h3>
+        <h3 className="font-serif text-aux font-bold">
+          Blog by Kirill Vasiltsov
+        </h3>
         {toggle}
       </header>
     )
