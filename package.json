@@ -13,6 +13,8 @@
     "gatsby-plugin-feed": "^2.3.19",
     "gatsby-plugin-manifest": "^2.2.16",
     "gatsby-plugin-offline": "^2.2.10",
+    "gatsby-plugin-postcss": "^2.1.20",
+    "gatsby-plugin-purgecss": "^4.0.1",
     "gatsby-plugin-react-helmet": "^3.1.7",
     "gatsby-plugin-sharp": "^2.2.25",
     "gatsby-remark-autolink-headers": "^2.1.10",
@@ -29,7 +31,9 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "autoprefixer": "^9.7.4",
+    "prettier": "^1.18.2",
+    "tailwindcss": "^1.2.0"
   },
   "license": "MIT",
   "scripts": {
