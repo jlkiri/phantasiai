@@ -13,6 +13,22 @@
   --link: #ea6c59;
 }
 
+@responsive {
+  .bg-gradient {
+    background: rgb(36, 88, 82);
+    background: linear-gradient(
+      119deg,
+      rgba(36, 88, 82, 1) 0%,
+      rgba(50, 101, 145, 1) 24%,
+      rgba(70, 140, 149, 1) 47%,
+      rgba(176, 63, 217, 1) 72%,
+      rgba(247, 61, 89, 1) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 /* lora-regular - latin */
 @font-face {
   font-family: "Lora";
@@ -151,11 +167,27 @@
 }
 
 h1 {
-  @apply text-3xl;
+  @apply text-4xl font-bold leading-9;
 }
 
 h2 {
+  @apply text-3xl font-extrabold leading-9;
+}
+
+h3 {
   @apply text-xl;
+}
+
+article p {
+  @apply pb-4;
+}
+
+article p:last-child {
+  @apply pb-8;
+}
+
+article h2 {
+  @apply pb-4 pt-8;
 }
 
 @tailwind components;

@@ -12,6 +12,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-transformer-remark`,
@@ -125,7 +126,6 @@ module.exports = {
         legacy: false
       }
     },
-    `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {

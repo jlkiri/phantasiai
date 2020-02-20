@@ -24,16 +24,6 @@ const BlogIndex = ({ data, path }) => {
               spoiler={post.frontmatter.spoiler}
             />
           ))}
-          <div>
-            <a
-              className=".text-6xl"
-              href="/rss.xml"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              rss
-            </a>
-          </div>
         </main>
         <Bio />
       </PageLayout>

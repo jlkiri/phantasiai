@@ -1,17 +1,17 @@
-import React, { useContext } from "react"
+import React from "react"
 import { Link } from "gatsby"
-import { ThemeContext } from "./PageLayout"
 
 const PostBriefLayout = ({ link, title, spoiler, date }) => {
-  const { theme } = useContext(ThemeContext)
   return (
-    <section>
-      <Link to={`${link}`}>
-        <h2>{title}</h2>
-      </Link>
-      <h4>{date}</h4>
-      <p>{spoiler}</p>
-    </section>
+    <div className="pb-10">
+      <div className="pb-2">
+        <Link to={`${link}`}>
+          <h2 className="text-link leading-9">{title}</h2>
+        </Link>
+        <span className="font-serif font-bold text-sm">{date}</span>
+      </div>
+      <p className="font-serif">{spoiler}</p>
+    </div>
   )
 }
 
