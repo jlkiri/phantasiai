@@ -12,11 +12,11 @@ const Header = ({ title, isRoot, rootPath, currentTheme }) => {
     />
   )
 
-  const headerClass = "font-extrabold inline font-mono"
+  const headerClass = "font-extrabold inline font-mono bg-gradient"
 
   if (isRoot)
     return (
-      <header className="relative pb-4 items-center justify-between lg:flex">
+      <header className="relative pb-8 items-center justify-between lg:flex">
         <Link to={rootPath}>
           <h1 className={headerClass}>{title}</h1>
         </Link>
@@ -26,7 +26,7 @@ const Header = ({ title, isRoot, rootPath, currentTheme }) => {
     )
 
   return (
-    <header>
+    <header className="pb-8">
       <Link to={rootPath}>
         <h2 className={headerClass}>{title}</h2>
       </Link>
