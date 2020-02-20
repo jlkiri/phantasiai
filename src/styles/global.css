@@ -1,3 +1,5 @@
+@tailwind base;
+
 /* lora-regular - latin */
 @font-face {
   font-family: "Lora";
@@ -5,9 +7,9 @@
   font-display: swap;
   font-weight: 400;
   src: local("Lora Regular"), local("Lora-Regular"),
-    url("src/fonts/lora-v14-latin-regular.woff2") format("woff2"),
+    url("../fonts/lora-v14-latin-regular.woff2") format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("src/fonts/lora-v14-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url("../fonts/lora-v14-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* lora-700 - latin */
 @font-face {
@@ -16,9 +18,9 @@
   font-display: swap;
   font-weight: 700;
   src: local("Lora Bold"), local("Lora-Bold"),
-    url("src/fonts/lora-v14-latin-700.woff2") format("woff2"),
+    url("../fonts/lora-v14-latin-700.woff2") format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("src/fonts/lora-v14-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url("../fonts/lora-v14-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* lora-regular - cyrillic */
@@ -28,9 +30,9 @@
   font-display: swap;
   font-weight: 400;
   src: local("Lora Regular"), local("Lora-Regular"),
-    url("src/fonts/lora-v14-cyrillic-regular.woff2") format("woff2"),
+    url("../fonts/lora-v14-cyrillic-regular.woff2") format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("src/fonts/lora-v14-cyrillic-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url("../fonts/lora-v14-cyrillic-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* lora-700 - cyrillic */
 @font-face {
@@ -39,9 +41,9 @@
   font-display: swap;
   font-weight: 700;
   src: local("Lora Bold"), local("Lora-Bold"),
-    url("src/fonts/lora-v14-cyrillic-700.woff2") format("woff2"),
+    url("../fonts/lora-v14-cyrillic-700.woff2") format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("src/fonts/lora-v14-cyrillic-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url("../fonts/lora-v14-cyrillic-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* lora-italic - cyrillic */
 @font-face {
@@ -50,9 +52,9 @@
   font-display: swap;
   font-weight: 400;
   src: local("Lora Italic"), local("Lora-Italic"),
-    url("src/fonts/lora-v14-cyrillic-italic.woff2") format("woff2"),
+    url("../fonts/lora-v14-cyrillic-italic.woff2") format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("src/fonts/lora-v14-cyrillic-italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url("../fonts/lora-v14-cyrillic-italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* lora-700italic - cyrillic */
 @font-face {
@@ -61,9 +63,9 @@
   font-display: swap;
   font-weight: 700;
   src: local("Lora Bold Italic"), local("Lora-BoldItalic"),
-    url("src/fonts/lora-v14-cyrillic-700italic.woff2") format("woff2"),
+    url("../fonts/lora-v14-cyrillic-700italic.woff2") format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("src/fonts/lora-v14-cyrillic-700italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url("../fonts/lora-v14-cyrillic-700italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* roboto-mono-700 - latin */
@@ -73,9 +75,9 @@
   font-weight: 700;
   font-display: swap;
   src: local("Roboto Mono Bold"), local("RobotoMono-Bold"),
-    url("src/fonts/roboto-mono-v7-latin-700.woff2") format("woff2"),
+    url("../fonts/roboto-mono-v7-latin-700.woff2") format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("src/fonts/roboto-mono-v7-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url("../fonts/roboto-mono-v7-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* montserrat-600 - latin */
@@ -85,9 +87,9 @@
   font-weight: 600;
   font-display: swap;
   src: local("Montserrat SemiBold"), local("Montserrat-SemiBold"),
-    url("src/fonts/montserrat-v14-latin-600.woff2") format("woff2"),
+    url("../fonts/montserrat-v14-latin-600.woff2") format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("src/fonts/montserrat-v14-latin-600.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url("../fonts/montserrat-v14-latin-600.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* montserrat-600 - cyrillic */
@@ -97,20 +99,9 @@
   font-weight: 600;
   font-display: swap;
   src: local("Montserrat SemiBold"), local("Montserrat-SemiBold"),
-    url("src/fonts/montserrat-v14-cyrillic-600.woff2") format("woff2"),
+    url("../fonts/montserrat-v14-cyrillic-600.woff2") format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("src/fonts/montserrat-v14-cyrillic-600.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-html {
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: "Lora", serif;
+      url("../fonts/montserrat-v14-cyrillic-600.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 .gatsby-highlight {
@@ -146,12 +137,6 @@ body {
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-}
+@tailwind components;
+
+@tailwind utilities;

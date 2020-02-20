@@ -1,5 +1,4 @@
 import React from "react"
-import styled from "@emotion/styled"
 import { StaticQuery, graphql } from "gatsby"
 import Helmet from "react-helmet"
 import colors from "../../colors"
@@ -14,19 +13,6 @@ const titleQuery = graphql`
       }
     }
   }
-`
-
-const ThemeWrapper = styled.div`
-  min-height: 100vh;
-  ${props =>
-    props.theme === "light"
-      ? `background-color: ${colors.lightWhiteBg};`
-      : `background-color: ${colors.darkPurpleBg};`}
-  ${props =>
-    props.theme === "light"
-      ? `color: ${colors.lightBlackTxt};`
-      : `color: ${colors.darkWhiteTxt};`}
-  transition: 0.3s;
 `
 
 export const ThemeContext = React.createContext({ theme: null })
@@ -56,28 +42,26 @@ class PageLayout extends React.Component {
           return (
             this.state.theme && (
               <ThemeContext.Provider value={{ theme: this.state.theme }}>
-                <ThemeWrapper theme={this.state.theme}>
-                  <Helmet
-                    meta={[
-                      {
-                        name: "theme-color",
-                        content:
-                          this.state.theme === "dark"
-                            ? `${colors.darkPurpleBg}`
-                            : `${colors.lightWhiteBg}`
-                      }
-                    ]}
+                <Helmet
+                  meta={[
+                    {
+                      name: "theme-color",
+                      content:
+                        this.state.theme === "dark"
+                          ? `${colors.darkPurpleBg}`
+                          : `${colors.lightWhiteBg}`
+                    }
+                  ]}
+                />
+                <CenteredLayout>
+                  <Header
+                    currentTheme={this.state.theme}
+                    title={data.site.siteMetadata.title}
+                    isRoot={isRoot}
+                    rootPath={rootPath}
                   />
-                  <CenteredLayout>
-                    <Header
-                      currentTheme={this.state.theme}
-                      title={data.site.siteMetadata.title}
-                      isRoot={isRoot}
-                      rootPath={rootPath}
-                    />
-                    {this.props.children}
-                  </CenteredLayout>
-                </ThemeWrapper>
+                  {this.props.children}
+                </CenteredLayout>
               </ThemeContext.Provider>
             )
           )
