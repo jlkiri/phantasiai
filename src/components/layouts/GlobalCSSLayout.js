@@ -1,4 +1,5 @@
 import "../../styles/global.css"
+import "./themes/prism-nord.css"
 import React from "react"
 
 export const GlobalCSSLayout = ({ children }) => (

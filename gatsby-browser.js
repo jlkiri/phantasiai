@@ -3,5 +3,3 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
-
-import "./themes/prism-nord.css"
