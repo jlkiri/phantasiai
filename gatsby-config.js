@@ -11,6 +11,7 @@ module.exports = {
     }
   },
   plugins: [
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     {
@@ -100,7 +101,6 @@ module.exports = {
         ]
       }
     },
-    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -122,9 +122,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
-        printRejected: false,
+        printRejected: true,
         develop: false,
-        tailwind: true
+        tailwind: true,
+        ignore: ["src/components/layouts/themes/"]
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
