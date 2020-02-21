@@ -17,7 +17,7 @@ const Header = ({ title, isRoot, rootPath, currentTheme }) => {
 
   if (isRoot)
     return (
-      <header className="relative pb-12 items-center justify-between lg:flex">
+      <header className="pb-12 items-center justify-between lg:flex">
         <Link to={rootPath}>
           <h1 className={headerClass}>{title}</h1>
         </Link>

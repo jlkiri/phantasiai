@@ -7,6 +7,7 @@
   --primary: #000000;
   --link: #d36150;
   --aux: #28353f;
+  --night: #171c28;
   @apply subpixel-antialiased;
 }
 
@@ -137,6 +138,23 @@
       url("../fonts/montserrat-v14-cyrillic-600.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+.top-right {
+  top: 1.8rem;
+  right: 2.5rem;
+}
+
+.expanding-bg {
+  transition: clip-path 500ms, background-color 300ms;
+  @apply w-full h-full;
+  @apply bg-secondary;
+  z-index: -100;
+  clip-path: circle(0% at 95% 5%);
+}
+
+.expanding-bg--expand {
+  clip-path: circle(75%);
+}
+
 h1 {
   @apply text-4xl font-bold leading-9;
 }
@@ -238,3 +256,64 @@ h2 a.anchor svg {
 @tailwind components;
 
 @tailwind utilities;
+
+.themeSwitch {
+  cursor: pointer;
+}
+
+.themeSwitch input {
+  display: none;
+}
+
+.themeSwitch input + div {
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  position: relative;
+  box-shadow: inset 8px -8px 0 0 var(--aux);
+  transform: scale(1) rotate(-2deg);
+  transition: box-shadow 0.5s ease 0s, transform 0.4s ease 0.1s;
+}
+
+.themeSwitch input + div:before {
+  content: "";
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: background 0.3s ease;
+}
+
+.themeSwitch input + div:after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin: -3px 0 0 -3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-shadow: 0 -14px 0 var(--aux), 0 14px 0 var(--aux), 14px 0 0 var(--aux),
+    -14px 0 0 var(--aux), 10px 10px 0 var(--aux), -10px 10px 0 var(--aux),
+    10px -10px 0 var(--aux), -10px -10px 0 var(--aux);
+  transform: scale(0);
+  transition: all 0.3s ease;
+}
+
+.themeSwitch input:checked + div {
+  box-shadow: inset 32px -32px 0 0 var(--aux);
+  transform: scale(0.5) rotate(0deg);
+  transition: transform 0.3s ease 0.1s, box-shadow 0.2s ease 0s;
+}
+
+.themeSwitch input:checked + div:before {
+  background: var(--aux);
+  transition: background 0.3s ease 0.1s;
+}
+
+.themeSwitch input:checked + div:after {
+  transform: scale(1.5);
+  transition: transform 0.5s ease 0.15s;
+}

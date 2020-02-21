@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useLayoutEffect, useEffect } from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Header from "components/header"
 import CenteredLayout from "./CenteredLayout"
@@ -13,49 +13,44 @@ const titleQuery = graphql`
   }
 `
 
-export const ThemeContext = React.createContext({ theme: null })
+const PageLayout = ({ path, children }) => {
+  const [theme, setTheme] = useState(null)
 
-class PageLayout extends React.Component {
-  state = {
-    theme: null
-  }
-
-  componentDidMount() {
-    this.setState({ theme: window.__theme })
+  useLayoutEffect(() => {
+    setTheme(window.__theme)
     window.__onThemeChange = () => {
-      this.setState({ theme: window.__theme })
+      console.log("wfwefkwoefkow")
+      setTheme(window.__theme)
     }
-  }
+  })
 
-  render() {
-    const isRoot = this.props.path === "/" || this.props.path === "/ru"
-    const rootPath = isRoot
-      ? this.props.path
-      : this.props.path.includes("/ru/")
-      ? "/ru"
-      : "/"
-    return (
-      <StaticQuery query={titleQuery}>
-        {data => {
-          return (
-            this.state.theme && (
-              <ThemeContext.Provider value={{ theme: this.state.theme }}>
-                <CenteredLayout>
-                  <Header
-                    currentTheme={this.state.theme}
-                    title={data.site.siteMetadata.title}
-                    isRoot={isRoot}
-                    rootPath={rootPath}
-                  />
-                  {this.props.children}
-                </CenteredLayout>
-              </ThemeContext.Provider>
-            )
-          )
-        }}
-      </StaticQuery>
-    )
-  }
+  const isRoot = path === "/" || path === "/ru"
+  const rootPath = isRoot ? path : path.includes("/ru/") ? "/ru" : "/"
+
+  const clipClass = theme === "dark" ? "expanding-bg--expand" : ""
+
+  return (
+    <StaticQuery query={titleQuery}>
+      {data => {
+        return (
+          <>
+            <CenteredLayout>
+              <Header
+                currentTheme={theme}
+                title={data.site.siteMetadata.title}
+                isRoot={isRoot}
+                rootPath={rootPath}
+              />
+              {children}
+            </CenteredLayout>
+            <div
+              className={`absolute expanding-bg top-0 right-0 ${clipClass}`}
+            ></div>
+          </>
+        )
+      }}
+    </StaticQuery>
+  )
 }
 
 export default PageLayout
