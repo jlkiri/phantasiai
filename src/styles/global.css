@@ -3,7 +3,6 @@
 /* purgecss start ignore */
 
 :root {
-  --codeBg: #28353f;
   --secondary: white;
   --primary: #000000;
   --link: #d36150;
@@ -12,12 +11,10 @@
 }
 
 [data-theme="dark"] {
-  --codeBg: #697279;
   --secondary: #182026;
   --primary: #f7fafc;
   --link: #ea6c59;
   --aux: #c9cdcf;
-  @apply subpixel-antialiased;
 }
 
 @responsive {
