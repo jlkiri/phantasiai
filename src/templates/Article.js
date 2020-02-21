@@ -7,7 +7,7 @@ import { GlobalCSSLayout } from "components/layouts/GlobalCSSLayout"
 
 export default function Article({ data, path }) {
   const { frontmatter, fields, html } = data.markdownRemark
-  console.log(data)
+  const { nodes } = data.allWebMentionEntry
   return (
     <GlobalCSSLayout>
       <PageLayout path={path}>
@@ -22,6 +22,7 @@ export default function Article({ data, path }) {
           title={frontmatter.title}
           date={frontmatter.date}
           html={html}
+          mentions={nodes}
         ></PostLayout>
       </PageLayout>
     </GlobalCSSLayout>

@@ -171,9 +171,39 @@ h3 {
   @apply text-xl font-bold leading-9;
 }
 
+.heart {
+  width: 14px;
+  height: 14px;
+  transform: rotate(-45deg);
+  @apply bg-pink-600;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  @apply rounded-full bg-pink-600;
+}
+
+.heart::before {
+  top: -7px;
+  left: 0;
+}
+
+.heart::after {
+  left: 7px;
+}
+
 article a,
-article + a {
+article + a,
+a.author {
   @apply text-link inline-block border-solid border-b-2 border-red-300 duration-200;
+}
+
+a.author {
+  @apply border-none;
 }
 
 article + a:hover,
