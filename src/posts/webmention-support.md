@@ -1,7 +1,7 @@
 ---
 title: Webmentions!
 date: "2020-02-22"
-spoiler: Webmentions!
+spoiler: This blog now supports webmentions.
 language: en
 ---
 
