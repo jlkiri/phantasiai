@@ -255,7 +255,8 @@ code {
   @apply text-sm;
 }
 
-ol {
+ol,
+ul {
   @apply pb-4;
 }
 

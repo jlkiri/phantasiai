@@ -12,7 +12,7 @@ const Heart = () => <div className="heart inline-block"></div>
 const Mentions = ({ mentions }) => {
   const numberOfLikes = mentions.filter(mention => mention.likeOf !== null)
   return (
-    <div className="border-dotted border-t-2 border-red-400 pt-4">
+    <div className="border-dotted border-t-2 border-b-2 border-red-400 pt-4 pb-4">
       <div className="ml-2 p-2">
         <Heart /> <span className="ml-2">{numberOfLikes.length}</span>
       </div>
