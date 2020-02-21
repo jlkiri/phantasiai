@@ -20,6 +20,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ actions, graphql }) => {
   const { data, errors } = await graphql(`
     query PostSlugQuery {
+      site {
+        siteMetadata {
+          siteUrl
+        }
+      }
       allMarkdownRemark {
         edges {
           node {
@@ -53,10 +58,11 @@ exports.createPages = async ({ actions, graphql }) => {
   })
 
   data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const fullPath = data.site.siteMetadata.siteUrl + node.fields.slug
     actions.createPage({
       path: node.fields.slug,
       component: path.resolve(`src/templates/Article.js`),
-      context: { slug: node.fields.slug }
+      context: { slug: node.fields.slug, fullPath }
     })
   })
 }
