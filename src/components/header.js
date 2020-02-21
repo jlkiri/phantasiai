@@ -2,10 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 import Toggle from "components/Toggle"
 
-const Header = ({ title, isRoot, rootPath, currentTheme }) => {
+const Header = ({ title, isRoot, rootPath }) => {
   const toggle = (
     <Toggle
-      currentTheme={currentTheme}
       handleToggle={e =>
         window.__setPreferredTheme(e.target.checked ? "dark" : "light")
       }
