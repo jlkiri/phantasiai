@@ -7,7 +7,7 @@
   --primary: #000000;
   --link: #d36150;
   --aux: #28353f;
-  --clip: circle(0% at 100% 0%);
+  --clip: circle(0% at 0% 100%);
   @apply subpixel-antialiased;
 }
 
@@ -274,7 +274,7 @@ h2 a.anchor svg {
   width: 26px;
   height: 26px;
   position: relative;
-  box-shadow: inset 8px -8px 0 0 var(--aux);
+  box-shadow: inset 10px -10px 0 0 var(--aux);
   transform: scale(1) rotate(-2deg);
   transition: box-shadow 0.5s ease 0s, transform 0.4s ease 0.1s;
 }

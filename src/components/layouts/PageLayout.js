@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react"
+import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Header from "components/header"
 import CenteredLayout from "./CenteredLayout"
