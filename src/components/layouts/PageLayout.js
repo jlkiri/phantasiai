@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useEffect } from "react"
+import React, { useState, useLayoutEffect } from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Header from "components/header"
 import CenteredLayout from "./CenteredLayout"
@@ -14,20 +14,8 @@ const titleQuery = graphql`
 `
 
 const PageLayout = ({ path, children }) => {
-  const [theme, setTheme] = useState(null)
-
-  useLayoutEffect(() => {
-    setTheme(window.__theme)
-    window.__onThemeChange = () => {
-      console.log("wfwefkwoefkow")
-      setTheme(window.__theme)
-    }
-  })
-
   const isRoot = path === "/" || path === "/ru"
   const rootPath = isRoot ? path : path.includes("/ru/") ? "/ru" : "/"
-
-  const clipClass = theme === "dark" ? "expanding-bg--expand" : ""
 
   return (
     <StaticQuery query={titleQuery}>
@@ -36,16 +24,14 @@ const PageLayout = ({ path, children }) => {
           <>
             <CenteredLayout>
               <Header
-                currentTheme={theme}
+                currentTheme={window.__theme}
                 title={data.site.siteMetadata.title}
                 isRoot={isRoot}
                 rootPath={rootPath}
               />
               {children}
             </CenteredLayout>
-            <div
-              className={`absolute expanding-bg top-0 right-0 ${clipClass}`}
-            ></div>
+            <div className={`absolute expanding-bg top-0 right-0`}></div>
           </>
         )
       }}

@@ -7,7 +7,7 @@
   --primary: #000000;
   --link: #d36150;
   --aux: #28353f;
-  --night: #171c28;
+  --clip: circle(0% at 95% 5%);
   @apply subpixel-antialiased;
 }
 
@@ -16,6 +16,7 @@
   --primary: #f7fafc;
   --link: #ea6c59;
   --aux: #c9cdcf;
+  --clip: circle(75%);
 }
 
 @responsive {
@@ -144,15 +145,11 @@
 }
 
 .expanding-bg {
-  transition: clip-path 500ms, background-color 300ms;
+  transition: clip-path 400ms, background-color 400ms;
   @apply w-full h-full;
   @apply bg-secondary;
   z-index: -100;
-  clip-path: circle(0% at 95% 5%);
-}
-
-.expanding-bg--expand {
-  clip-path: circle(75%);
+  clip-path: var(--clip);
 }
 
 h1 {
