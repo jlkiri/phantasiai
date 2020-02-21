@@ -1,17 +1,10 @@
 import React from "react"
-import sun from "../assets/sun.svg"
-import moon from "../assets/moon.svg"
 
-export default function Toggle({ currentTheme, handleToggle }) {
+export default function Toggle({ handleToggle }) {
   return (
-    <label className="absolute top-0 right-0" htmlFor="toggle">
-      <input
-        id="toggle"
-        aria-label="Switch between dark and light theme"
-        onChange={handleToggle}
-        checked={currentTheme === "dark"}
-        type="checkbox"
-      />
+    <label className="absolute top-right themeSwitch">
+      <input type="checkbox" onChange={handleToggle} />
+      <div></div>
     </label>
   )
 }
