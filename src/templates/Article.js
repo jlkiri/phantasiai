@@ -7,6 +7,7 @@ import { GlobalCSSLayout } from "components/layouts/GlobalCSSLayout"
 
 export default function Article({ data, path }) {
   const { frontmatter, fields, html } = data.markdownRemark
+  const { nodes } = data.allWebMentionEntry
   return (
     <GlobalCSSLayout>
       <PageLayout path={path}>
@@ -21,6 +22,7 @@ export default function Article({ data, path }) {
           title={frontmatter.title}
           date={frontmatter.date}
           html={html}
+          mentions={nodes}
         ></PostLayout>
       </PageLayout>
     </GlobalCSSLayout>
@@ -28,7 +30,7 @@ export default function Article({ data, path }) {
 }
 
 export const postQuery = graphql`
-  query PostInfo($slug: String!) {
+  query PostInfo($slug: String!, $fullPath: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       fields {
@@ -39,6 +41,26 @@ export const postQuery = graphql`
         title
         spoiler
         language
+      }
+    }
+    allWebMentionEntry(filter: { wmTarget: { eq: $fullPath } }) {
+      nodes {
+        author {
+          type
+          name
+          photo
+          url
+        }
+        content {
+          text
+        }
+        url
+        type
+        likeOf
+        wmId
+        wmTarget
+        wmSource
+        wmProperty
       }
     }
   }

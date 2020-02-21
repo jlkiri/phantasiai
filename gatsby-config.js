@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env`
+})
+
 module.exports = {
   siteMetadata: {
     title: `phantasia[i]`,
@@ -117,6 +121,22 @@ module.exports = {
         display: `browser`,
         icon: `src/assets/icon.png`,
         legacy: false
+      }
+    },
+    {
+      resolve: `gatsby-plugin-webmention`,
+      options: {
+        username: `phantasiai.dev`, // webmention.io username
+        identity: {
+          // you need to specify at least one of the identities
+          // to be able to log in webmention.io
+          github: "jlkiri",
+          twitter: "jlkiri" // no @
+        },
+        mentions: true,
+        domain: `phantasiai.dev`,
+        fetchLimit: 10000, // number of webmentions to fetch
+        token: process.env.WEBMENTIONS_TOKEN
       }
     },
     {
