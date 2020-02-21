@@ -7,7 +7,7 @@
   --primary: #000000;
   --link: #d36150;
   --aux: #28353f;
-  --clip: circle(0% at 0% 100%);
+  --clip: circle(0% at 0% 0%);
   @apply subpixel-antialiased;
 }
 
@@ -168,7 +168,11 @@ h2 {
 }
 
 h3 {
-  @apply text-xl font-bold leading-9;
+  @apply text-xl font-bold leading-9 transition-color duration-500;
+}
+
+main {
+  @apply transition-color duration-500;
 }
 
 article a,

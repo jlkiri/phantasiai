@@ -8,6 +8,9 @@ module.exports = {
         mono: ["Roboto Mono", ...defaultTheme.fontFamily.mono],
         serif: ["Lora", ...defaultTheme.fontFamily.serif]
       },
+      transitionProperty: {
+        color: "color"
+      },
       colors: {
         secondary: `var(--secondary)`,
         primary: `var(--primary)`,
