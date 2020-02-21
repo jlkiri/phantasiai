@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 const SVGIcon = ({ children, link, text }) => (
   <div className="flex items-center flex-col">
     <a className="text-link underline" href={link}>
-      <span className="font-bold inline-block pb-2">{text}</span>
+      <span className="font-bold font-mono inline-block pb-2">{text}</span>
     </a>
     {children}
   </div>
@@ -35,7 +35,7 @@ const Bio = () => {
             role="img"
             width="30px"
             height="30px"
-            className="fill-current"
+            className="fill-current hover:svg"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -51,7 +51,7 @@ const Bio = () => {
             width="30px"
             height="30px"
             viewBox="0 0 25 25"
-            className="fill-current"
+            className="fill-current hover:svg"
             xmlns="http://www.w3.org/2000/svg"
           >
             <title>GitHub icon</title>
@@ -63,7 +63,7 @@ const Bio = () => {
         <a href={"https://twitter.com/maaiiya8"}>
           <svg
             role="img"
-            className="fill-current"
+            className="fill-current hover:svg"
             width="30px"
             height="30px"
             viewBox="0 0 25 25"

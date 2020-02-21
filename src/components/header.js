@@ -13,7 +13,7 @@ const Header = ({ title, isRoot, rootPath, currentTheme }) => {
   )
 
   const headerClass =
-    "font-extrabold inline-block font-mono bg-gradient mb-3 lg:mb-0"
+    "font-extrabold leading-tight inline-block font-mono bg-gradient mb-3 lg:mb-0"
 
   if (isRoot)
     return (

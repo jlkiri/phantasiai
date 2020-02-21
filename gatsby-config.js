@@ -11,7 +11,6 @@ module.exports = {
     }
   },
   plugins: [
-    `gatsby-plugin-postcss`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     {
@@ -26,15 +25,7 @@ module.exports = {
               maxWidth: 735
             }
           },
-          {
-            resolve: `gatsby-remark-shiki`,
-            options: {
-              useBackground: true
-              // CSS class suffix to be used for produced `<pre/>` blocks.
-              // Default value is "default", which adds "cm-s-default" class.
-              // This class name matches
-            }
-          },
+          `gatsby-remark-prismjs`,
           {
             resolve: `gatsby-plugin-feed`,
             options: {
@@ -109,6 +100,7 @@ module.exports = {
         ]
       }
     },
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
