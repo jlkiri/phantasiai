@@ -1,73 +1,26 @@
-import React, { useContext } from "react"
-import styled from "@emotion/styled"
-import Date from "components/Date"
-import PostTitle from "components/PostTitle"
-import Main from "components/Main"
-import { ThemeContext } from "./PageLayout"
-import colors from "../../colors"
+import React from "react"
+import { Link } from "gatsby"
+import Bio from "../Bio"
 
-const StyledMarkdownContent = styled.article`
-  font-size: 18px;
-  p {
-    margin-top: 18px;
-    line-height: 1.42857;
-  }
-  h1 {
-    margin: 33px 0;
-    font-size: 33px;
-  }
-  h2 {
-    margin: 30px 0;
-    font-size: 30px;
-  }
-  h3 {
-    margin: 27px 0;
-    font-size: 27px;
-  }
-  h4 {
-    margin: 24px 0;
-    font-size: 24px;
-  }
-  h5 {
-    margin: 21px 0;
-    font-size: 21px;
-  }
-  a {
-    color: ${props =>
-      props.theme === "dark" ? `${colors.darkLink}` : `${colors.lightLink}`};
-
-    :hover {
-      text-decoration: none;
-    }
-  }
-
-  code.language-text {
-    font-size: 16px;
-    background-color: ${props =>
-      props.theme === "dark"
-        ? `${colors.darkCodeText}`
-        : `${colors.lightCodeText}`};
-    color: ${props => (props.theme === "dark" ? "white" : `black`)};
-  }
-`
-
-const StyledHeader = styled.header`
-  font-size: 21px;
-`
-
-const PostLayout = ({ title, date, html }) => {
-  const { theme } = useContext(ThemeContext)
+const PostLayout = ({ title, path, date, html }) => {
+  const rootPath = path.includes("/ru/") ? "/ru" : "/"
   return (
-    <Main>
-      <StyledHeader>
-        <PostTitle>{title}</PostTitle>
-        <Date>{date}</Date>
-      </StyledHeader>
-      <StyledMarkdownContent
-        theme={theme}
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
-    </Main>
+    <>
+      <main className="pb-4">
+        <div className="pb-8">
+          <h1 className="font-serif pb-4">{title}</h1>
+          <span className="font-bold font-serif">{date}</span>
+        </div>
+        <article
+          className="font-serif text-lg"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+        <Link className="mb-8" to={rootPath}>
+          {"<<< Back to top page"}
+        </Link>
+      </main>
+      <Bio />
+    </>
   )
 }
 

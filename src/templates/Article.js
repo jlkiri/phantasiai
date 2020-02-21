@@ -3,24 +3,27 @@ import { graphql } from "gatsby"
 import PageLayout from "components/layouts/PageLayout"
 import PostLayout from "components/layouts/PostLayout"
 import SEO from "components/seo"
+import { GlobalCSSLayout } from "components/layouts/GlobalCSSLayout"
 
 export default function Article({ data, path }) {
   const { frontmatter, fields, html } = data.markdownRemark
   return (
-    <PageLayout path={path}>
-      <SEO
-        title={frontmatter.title}
-        lang={frontmatter.language}
-        description={frontmatter.spoiler}
-        slug={fields.slug}
-      />
-      <PostLayout
-        path={path}
-        title={frontmatter.title}
-        date={frontmatter.date}
-        html={html}
-      ></PostLayout>
-    </PageLayout>
+    <GlobalCSSLayout>
+      <PageLayout path={path}>
+        <SEO
+          title={frontmatter.title}
+          lang={frontmatter.language}
+          description={frontmatter.spoiler}
+          slug={fields.slug}
+        />
+        <PostLayout
+          path={path}
+          title={frontmatter.title}
+          date={frontmatter.date}
+          html={html}
+        ></PostLayout>
+      </PageLayout>
+    </GlobalCSSLayout>
   )
 }
 

@@ -4,7 +4,4 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
-import "normalize.css"
-import "./global.css"
-import "prismjs/themes/prism-tomorrow.css"
+import "./themes/prism-nord.css"

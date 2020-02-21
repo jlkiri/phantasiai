@@ -1,64 +1,95 @@
-import React, { useContext } from "react"
-import styled from "@emotion/styled"
-import profilePic from "assets/profile-pic.jpg"
-import { ThemeContext } from "./layouts/PageLayout"
-import colors from "../colors"
+import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
-const StyledBio = styled.aside`
-  margin-top: 51px;
-`
-
-const StyledPic = styled.img`
-  border-radius: 30%;
-  width: 60px;
-  height: 60px;
-  margin-right: 12px;
-  vertical-align: middle;
-
-  @media screen and (min-width: 768px) {
-    width: 72px;
-    height: 72px;
-  }
-`
-
-const StyledDescription = styled.p`
-  max-width: 243px;
-  font-size: 16px;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1.3;
-
-  @media screen and (max-width: 320px) {
-    max-width: 200px;
-  }
-`
-
-const StyledExternalLink = styled.a`
-  color: ${props =>
-    props.theme === "dark" ? `${colors.darkLink}` : `${colors.lightLink}`};
-
-  :hover {
-    text-decoration: none;
-  }
-`
+const SVGIcon = ({ children, link, text }) => (
+  <div className="flex items-center flex-col">
+    <a className="text-link underline" href={link}>
+      <span className="font-bold font-mono inline-block pb-2">{text}</span>
+    </a>
+    {children}
+  </div>
+)
 
 const Bio = () => {
-  const { theme } = useContext(ThemeContext)
+  const {
+    site: { siteMetadata }
+  } = useStaticQuery(
+    graphql`
+      query BioQuery {
+        site {
+          siteMetadata {
+            social {
+              qiita
+              github
+            }
+          }
+        }
+      }
+    `
+  )
   return (
-    <StyledBio>
-      <StyledPic alt="Profile picture" src={profilePic} />
-      <StyledDescription>
-        {`Personal blog by `}
-        <StyledExternalLink
-          rel="me"
-          theme={theme}
-          href="https://twitter.com/maaiiya8"
-        >
-          Kirill Vasiltsov
-        </StyledExternalLink>
-        {`. I write about linguistics, programming and web.`}
-      </StyledDescription>
-    </StyledBio>
+    <aside className="pb-4 flex items-center justify-around">
+      <SVGIcon link="/rss.xml" text="RSS">
+        <a href="/rss.xml" target="_blank" rel="noopener noreferrer">
+          <svg
+            role="img"
+            width="30px"
+            height="30px"
+            className="fill-current hover:svg"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>RSS icon</title>
+            <path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z" />
+          </svg>
+        </a>
+      </SVGIcon>
+      <SVGIcon link={siteMetadata.social.github} text="Github">
+        <a href={siteMetadata.social.github}>
+          <svg
+            role="img"
+            width="30px"
+            height="30px"
+            viewBox="0 0 25 25"
+            className="fill-current hover:svg"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>GitHub icon</title>
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+          </svg>
+        </a>
+      </SVGIcon>
+      <SVGIcon link={"https://twitter.com/maaiiya8"} text="Twitter">
+        <a href={"https://twitter.com/maaiiya8"}>
+          <svg
+            role="img"
+            className="fill-current hover:svg"
+            width="30px"
+            height="30px"
+            viewBox="0 0 25 25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Twitter icon</title>
+            <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z" />
+          </svg>
+        </a>
+      </SVGIcon>
+      <SVGIcon link={siteMetadata.social.qiita} text="Qiita">
+        <a href={siteMetadata.social.qiita}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="fill-current"
+            role="img"
+            width="30px"
+            height="30px"
+            viewBox="0 0 25 25"
+          >
+            <title>Qiita icon</title>
+            <path d="M7.883 11.615c0-1.92-1.474-3.904-3.974-3.904C1.987 7.71 0 9.183 0 11.679c0 1.92 1.474 3.905 3.973 3.905.801 0 1.602-.256 2.275-.736L7.402 16l.513-.512-1.09-1.088c.673-.736 1.058-1.696 1.058-2.785zm-3.974-3.2c1.827 0 3.269 1.408 3.269 3.232 0 1.569-1.218 3.233-3.237 3.233-2.018 0-3.236-1.632-3.236-3.2 0-2.049 1.634-3.265 3.204-3.265zm5.864 1.568h.673v5.44h-.673zm.32-.736a.574.574 0 0 1-.576-.576c0-.32.256-.576.576-.576.32 0 .577.256.577.576 0 .32-.256.576-.577.576zm2.724 0a.574.574 0 0 1-.577-.576c0-.32.257-.576.577-.576.32 0 .577.256.577.576 0 .32-.256.576-.577.576zm-.32.736h.673v5.44h-.673zm4.71 5.537c-1.25 0-1.987-.96-1.987-1.92V8.479h.673v1.504h2.371v.672h-2.37v2.977c0 .608.48 1.248 1.313 1.248.224 0 .449-.064.64-.192l.065-.032.32.576-.064.032c-.288.16-.64.256-.961.256zm4.454.032c-1.827 0-2.916-1.44-2.916-2.848 0-1.825 1.442-2.913 2.852-2.913.737 0 1.314.256 1.73.736v-.544H24v5.44h-.673v-.607c-.384.48-.961.736-1.666.736zm-.064-5.089c-1.09 0-2.18.832-2.18 2.24 0 1.089.834 2.177 2.244 2.177.64 0 1.282-.288 1.698-.8v-2.817a2.29 2.29 0 0 0-1.762-.8z" />
+          </svg>
+        </a>
+      </SVGIcon>
+    </aside>
   )
 }
 

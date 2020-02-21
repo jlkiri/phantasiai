@@ -5,12 +5,14 @@ module.exports = {
     author: `Kirill Vasiltsov`,
     siteUrl: "https://phantasiai.dev/",
     social: {
-      twitter: "@jlkiri"
+      twitter: "@jlkiri",
+      qiita: "https://qiita.com/jlkiri",
+      github: "https://github.com/jlkiri"
     }
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -23,14 +25,7 @@ module.exports = {
               maxWidth: 735
             }
           },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              // CSS class suffix to be used for produced `<pre/>` blocks.
-              // Default value is "default", which adds "cm-s-default" class.
-              // This class name matches
-            }
-          },
+          `gatsby-remark-prismjs`,
           {
             resolve: `gatsby-plugin-feed`,
             options: {
@@ -105,6 +100,7 @@ module.exports = {
         ]
       }
     },
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -123,7 +119,14 @@ module.exports = {
         legacy: false
       }
     },
-    `gatsby-plugin-emotion`
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: false,
+        develop: false,
+        tailwind: true
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

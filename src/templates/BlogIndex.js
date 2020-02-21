@@ -1,50 +1,33 @@
 import React from "react"
-import styled from "@emotion/styled"
 import PageLayout from "components/layouts/PageLayout"
-import Main from "components/Main"
 import PostBriefLayout from "components/layouts/PostBriefLayout"
 import { graphql } from "gatsby"
 import SEO from "components/seo"
 import Bio from "components/Bio"
-
-const LinkBlock = styled.div`
-  margin-top: 35px;
-`
-
-const StyledRSSLink = styled.a`
-  color: orange;
-  font-size: 20px;
-`
+import { GlobalCSSLayout } from "components/layouts/GlobalCSSLayout"
 
 const BlogIndex = ({ data, path }) => {
   const { nodes: posts } = data.allMarkdownRemark
   const { siteMetadata } = data.site
 
   return (
-    <PageLayout blogTitle={siteMetadata.title} path={path}>
-      <SEO index />
-      <Bio />
-      <Main>
-        {posts.map(post => (
-          <PostBriefLayout
-            key={post.id}
-            link={post.fields.slug}
-            title={post.frontmatter.title}
-            date={post.frontmatter.date}
-            spoiler={post.frontmatter.spoiler}
-          />
-        ))}
-        <LinkBlock>
-          <StyledRSSLink
-            href="/rss.xml"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            rss
-          </StyledRSSLink>
-        </LinkBlock>
-      </Main>
-    </PageLayout>
+    <GlobalCSSLayout>
+      <PageLayout blogTitle={siteMetadata.title} path={path}>
+        <SEO index />
+        <main className="pb-4">
+          {posts.map(post => (
+            <PostBriefLayout
+              key={post.id}
+              link={post.fields.slug}
+              title={post.frontmatter.title}
+              date={post.frontmatter.date}
+              spoiler={post.frontmatter.spoiler}
+            />
+          ))}
+        </main>
+        <Bio />
+      </PageLayout>
+    </GlobalCSSLayout>
   )
 }
 
