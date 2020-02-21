@@ -7,7 +7,7 @@
   --primary: #000000;
   --link: #d36150;
   --aux: #28353f;
-  --clip: circle(0% at 91% 2%);
+  --clip: circle(0% at 100% 0%);
   @apply subpixel-antialiased;
 }
 
@@ -140,8 +140,15 @@
 }
 
 .top-right {
-  top: 1.8rem;
-  right: 2.5rem;
+  top: 1.4rem;
+  right: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .top-right {
+    top: 1.4rem;
+    right: 7rem;
+  }
 }
 
 .expanding-bg {

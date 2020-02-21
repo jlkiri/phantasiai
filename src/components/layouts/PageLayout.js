@@ -17,6 +17,8 @@ const PageLayout = ({ path, children }) => {
   const isRoot = path === "/" || path === "/ru"
   const rootPath = isRoot ? path : path.includes("/ru/") ? "/ru" : "/"
 
+  const safeTheme = typeof window === "undefined" ? "dark" : window.__theme
+
   return (
     <StaticQuery query={titleQuery}>
       {data => {
@@ -24,7 +26,7 @@ const PageLayout = ({ path, children }) => {
           <>
             <CenteredLayout>
               <Header
-                currentTheme={window.__theme}
+                currentTheme={safeTheme}
                 title={data.site.siteMetadata.title}
                 isRoot={isRoot}
                 rootPath={rootPath}

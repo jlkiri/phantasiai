@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react"
 
 export default function Toggle({ handleToggle }) {
-  const [theme, setTheme] = useState(window.__theme)
+  const isNode = typeof window === "undefined"
+  const safeTheme = isNode ? "light" : window.__theme
+  const [theme, setTheme] = useState(safeTheme)
 
   useEffect(() => {
-    window.__onThemeChange = newTheme => setTheme(newTheme)
+    if (!isNode) {
+      window.__onThemeChange = newTheme => setTheme(newTheme)
+    }
   }, [])
 
   return (
