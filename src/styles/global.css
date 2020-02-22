@@ -202,6 +202,7 @@ main {
 
 article a,
 article + a,
+ul a,
 a.author {
   @apply text-link inline-block border-solid border-b-2 border-red-300 duration-200;
 }

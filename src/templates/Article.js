@@ -51,6 +51,7 @@ export const postQuery = graphql`
           photo
           url
         }
+        published(formatString: "YYYY/MM/DD")
         content {
           text
         }

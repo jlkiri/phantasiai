@@ -2,9 +2,17 @@ import React from "react"
 import { Link } from "gatsby"
 import Bio from "../Bio"
 
-const getActionText = mention => {
-  if (mention.likeOf) return "liked this"
+const getMentionText = mention => {
+  if (mention.wmProperty == "like-of") return "liked this"
+  if (mention.wmProperty == "repost-of") return "retweeted this"
+  if (mention.wmProperty == "in-reply-to") return `replied`
   return ""
+}
+
+const getMentionDateAndURL = mention => {
+  if (mention.wmProperty == "in-reply-to")
+    return <a href={mention.url}> on {`${mention.published}:`}</a>
+  return null
 }
 
 const Heart = () => <div className="heart inline-block"></div>
@@ -16,19 +24,28 @@ const Mentions = ({ mentions }) => {
       <div className="ml-2 p-2">
         <Heart /> <span className="ml-2">{numberOfLikes.length}</span>
       </div>
-      {mentions.map(mention => {
-        return (
-          <div class="flex p-2 items-center">
-            <img className="w-8 h-8 rounded-full" src={mention.author.photo} />
-            <div class="ml-4">
-              <a className="author" href={mention.author.url}>
-                {mention.author.name}
-              </a>{" "}
-              {getActionText(mention)}
-            </div>
-          </div>
-        )
-      })}
+      <ul>
+        {mentions.map(mention => {
+          return (
+            <li class="flex p-2">
+              <img
+                className="w-8 h-8 inline-block rounded-full"
+                src={mention.author.photo}
+              />
+              <div className="ml-4 inline-block">
+                <a className="author" href={mention.author.url}>
+                  {mention.author.name}
+                </a>{" "}
+                <span>{getMentionText(mention)}</span>
+                <span className="ml-1">{getMentionDateAndURL(mention)}</span>
+                {mention.content && (
+                  <div className="italic">{mention.content.text}</div>
+                )}
+              </div>
+            </li>
+          )
+        })}
+      </ul>
     </div>
   )
 }
