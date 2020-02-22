@@ -7,6 +7,7 @@ export default function Toggle({ handleToggle }) {
 
   useEffect(() => {
     if (!isNode) {
+      setTheme(window.__theme)
       window.__onThemeChange = newTheme => setTheme(newTheme)
     }
   }, [isNode])
