@@ -3,14 +3,6 @@ import { Link } from "gatsby"
 import Toggle from "components/Toggle"
 
 const Header = ({ title, isRoot, rootPath }) => {
-  const toggle = (
-    <Toggle
-      handleToggle={e =>
-        window.__setPreferredTheme(e.target.checked ? "dark" : "light")
-      }
-    />
-  )
-
   const headerClass =
     "font-extrabold leading-tight inline-block font-mono bg-gradient mb-3 lg:mb-0"
 
@@ -23,7 +15,7 @@ const Header = ({ title, isRoot, rootPath }) => {
         <h3 className="font-serif text-aux font-bold">
           Blog by Kirill Vasiltsov
         </h3>
-        {toggle}
+        <Toggle />
       </header>
     )
 
@@ -32,7 +24,7 @@ const Header = ({ title, isRoot, rootPath }) => {
       <Link to={rootPath}>
         <h2 className={headerClass}>{title}</h2>
       </Link>
-      {toggle}
+      <Toggle />
     </header>
   )
 }

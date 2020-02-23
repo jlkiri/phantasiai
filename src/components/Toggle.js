@@ -1,25 +1,35 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 
-export default function Toggle({ handleToggle }) {
-  const isNode = typeof window === "undefined"
-  const safeTheme = isNode ? "dark" : window.__theme
-  const [theme, setTheme] = useState(safeTheme)
+export default class Toggle extends React.Component {
+  isNode = typeof window === "undefined"
+  safeTheme = this.isNode ? "dark" : window.__theme
 
-  useEffect(() => {
-    if (!isNode) {
-      setTheme(window.__theme)
-      window.__onThemeChange = newTheme => setTheme(newTheme)
+  state = {
+    theme: this.safeTheme
+  }
+
+  handleToggle = () => {
+    window.__setPreferredTheme(window.__theme === "light" ? "dark" : "light")
+  }
+
+  componentDidMount() {
+    this.setState({ theme: window.__theme })
+    window.__onThemeChange = newTheme => this.setState({ theme: newTheme })
+  }
+
+  render() {
+    if (typeof window !== "undefined") {
+      return (
+        <label className="absolute top-right themeSwitch">
+          <input
+            checked={window.__theme === "dark"}
+            type="checkbox"
+            onChange={this.handleToggle.bind(this)}
+          />
+          <div></div>
+        </label>
+      )
     }
-  }, [isNode])
-
-  return (
-    <label className="absolute top-right themeSwitch">
-      <input
-        checked={theme === "dark"}
-        type="checkbox"
-        onChange={handleToggle}
-      />
-      <div></div>
-    </label>
-  )
+    return null
+  }
 }
