@@ -17,5 +17,11 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Spoiler", name: "spoiler", widget: "string" }
+      - {
+          label: "Language",
+          name: "language",
+          widget: "select",
+          options: ["en", "ru"],
+        }
       - { label: "Body", name: "body", widget: "markdown" }
