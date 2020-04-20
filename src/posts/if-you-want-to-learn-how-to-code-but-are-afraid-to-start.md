@@ -18,8 +18,16 @@ In other words, people who can code are not some [galaxy brain](https://knowyour
 
 If they could do it, you can do it. 
 
-It is as simple as that. But it is a very powerful thought that I want you to entertain. How do I know that? Well, I was afraid to start too, a few years ago. In fact, I even managed to start once and then gave up. I gave up because even after I started to learn programming, some things were so confusing that I lost all confidence halfway through. And I lost it because I didn't internalize this simple mindset - if someone can do it, then you can do it too.
+It is as simple as that. But it is a very powerful thought that I want you to entertain. How do I know this? Well, I was afraid to start too, a few years ago. In fact, I even managed to start once and then gave up. I gave up because even after I started to learn programming, some things were so confusing that I lost all confidence halfway through. And I lost it because I didn't internalize this simple mindset - if someone can do it, then you can do it too.
 
-Ever since I realised that, everything has been smooth sailing.
+Ever since I realised this, everything has been smooth sailing.
 
 This is why I want you to bear this in mind even after you start. In fact, this idea extends to other activities as well. Maybe you want to start learning drums. Or writing. Or whatever. Unless there are very objective walls in front of you, you can do it.
+
+If for some reason this is not enough, you can use a trick. This is a trick I sometimes use to do the first step, which is the hardest.
+
+Imagine that you are someone else. This person can be your role model, or your friend who codes, or even someone who doesn't exist. All you know is that this person is very confident and doing the first step for him is super easy. He's almost like some badass movie character that just happens to succeed. 
+
+And then do it.
+
+After that, you can go back to normal you. The hardest part is over. I hope this helps you as much as it helped me.
