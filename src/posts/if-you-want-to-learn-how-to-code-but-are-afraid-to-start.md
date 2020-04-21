@@ -3,6 +3,9 @@ title: If you want to learn how to code but are afraid to start
 date: 2020-04-20T15:56:41.215Z
 spoiler: Programming is not something that only someone else can do.
 language: en
+tags:
+  - learning
+  - programming
 ---
 Are you afraid to start learning to code? I have good news for you - by the end of this post you probably won't be. I will not tell you **THE SECRET**. There isn't one. Instead I am going to reason a little bit.
 
