@@ -2,7 +2,7 @@ import React from "react"
 import PageLayout from "components/layouts/PageLayout"
 import PostBriefLayout from "components/layouts/PostBriefLayout"
 import { graphql } from "gatsby"
-import SEO from "components/seo"
+import Seo from "components/seo"
 import Bio from "components/Bio"
 import { GlobalCSSLayout } from "components/layouts/GlobalCSSLayout"
 
@@ -13,8 +13,8 @@ const BlogIndex = ({ data, path }) => {
   return (
     <GlobalCSSLayout>
       <PageLayout blogTitle={siteMetadata.title} path={path}>
-        <SEO index />
-        <main className="pb-4">
+        <Seo index />
+        <main className="pt-10">
           {posts.map(post => (
             <PostBriefLayout
               key={post.id}

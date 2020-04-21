@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import Bio from "../Bio"
 
 const getMentionText = mention => {
@@ -20,7 +19,7 @@ const Heart = () => <div className="heart inline-block"></div>
 const Mentions = ({ mentions }) => {
   const numberOfLikes = mentions.filter(mention => mention.likeOf !== null)
   return (
-    <div className="border-dotted border-t-2 border-b-2 border-red-400 pt-4 pb-4">
+    <div className="border-dotted border-t-2 border-b-2 border-text-auxbg pt-4 pb-4">
       <div className="ml-2 p-2">
         <Heart /> <span className="ml-2">{numberOfLikes.length}</span>
       </div>
@@ -56,16 +55,13 @@ const PostLayout = ({ title, path, date, mentions, html }) => {
     <>
       <main className="pb-4">
         <div className="pb-8">
-          <h1 className="font-serif pb-4">{title}</h1>
-          <span className="font-bold font-serif">{date}</span>
+          <h1 className="font-postHeader pb-4">{title}</h1>
+          <span className="font-bold font-mono">{date}</span>
         </div>
         <article
-          className="font-serif text-lg"
+          className="font-sans text-lg"
           dangerouslySetInnerHTML={{ __html: html }}
         />
-        <Link className="mb-8" to={rootPath}>
-          {"<<< Back to top page"}
-        </Link>
         <Mentions mentions={mentions} />
       </main>
       <Bio />

@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 const SVGIcon = ({ children, link, text }) => (
   <div className="flex items-center flex-col">
-    <a className="text-link underline" href={link}>
+    <a href={link}>
       <span className="font-bold font-mono inline-block pb-2">{text}</span>
     </a>
     {children}
@@ -30,7 +30,12 @@ const Bio = () => {
   return (
     <aside className="pb-4 flex items-center justify-around">
       <SVGIcon link="/rss.xml" text="RSS">
-        <a href="/rss.xml" target="_blank" rel="noopener noreferrer">
+        <a
+          className="text-text"
+          href="/rss.xml"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <svg
             role="img"
             width="30px"

@@ -3,140 +3,93 @@
 /* purgecss start ignore */
 
 :root {
-  --secondary: white;
-  --primary: #000000;
-  --link: #d36150;
-  --aux: #28353f;
+  --bg: white;
+  --text: black;
+  --auxbg: rgb(255, 179, 0);
+  --auxtext: #353535;
+  --gradient: linear-gradient(
+    159deg,
+    var(--auxbg) 74%,
+    rgb(249, 246, 246) 74.1%
+  );
   --clip: circle(0% at 0% 0%);
   @apply subpixel-antialiased;
 }
 
 [data-theme="dark"] {
-  --secondary: #182026;
-  --primary: #f7fafc;
-  --link: #ea6c59;
-  --aux: #c9cdcf;
+  --text: white;
+  --article-text: whitesmoke;
+  --bg: #182026;
+  --auxbg: rgb(93, 152, 170);
+  --auxtext: #e4e4e4;
+  --gradient: linear-gradient(159deg, rgb(49, 57, 62) 74%, var(--auxbg) 74.1%);
   --clip: circle(75%);
 }
 
-@responsive {
-  .bg-gradient {
-    background: rgb(36, 88, 82);
-    background: linear-gradient(
-      119deg,
-      rgba(36, 88, 82, 1) 0%,
-      rgba(50, 101, 145, 1) 24%,
-      rgba(70, 140, 149, 1) 47%,
-      rgba(176, 63, 217, 1) 72%,
-      rgba(247, 61, 89, 1) 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+h1,
+h2,
+h3 {
+  @apply transition-color duration-500 leading-tight font-header;
 }
 
-/* lora-regular - latin */
-@font-face {
-  font-family: "Lora";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 400;
-  src: local("Lora Regular"), local("Lora-Regular"),
-    url("../fonts/lora-v14-latin-regular.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("../fonts/lora-v14-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* lora-700 - latin */
-@font-face {
-  font-family: "Lora";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 700;
-  src: local("Lora Bold"), local("Lora-Bold"),
-    url("../fonts/lora-v14-latin-700.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("../fonts/lora-v14-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+h1 {
+  @apply text-3xl font-extrabold;
 }
 
-/* lora-regular - cyrillic */
-@font-face {
-  font-family: "Lora";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 400;
-  src: local("Lora Regular"), local("Lora-Regular"),
-    url("../fonts/lora-v14-cyrillic-regular.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("../fonts/lora-v14-cyrillic-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* lora-700 - cyrillic */
-@font-face {
-  font-family: "Lora";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 700;
-  src: local("Lora Bold"), local("Lora-Bold"),
-    url("../fonts/lora-v14-cyrillic-700.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("../fonts/lora-v14-cyrillic-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* lora-italic - cyrillic */
-@font-face {
-  font-family: "Lora";
-  font-style: italic;
-  font-display: swap;
-  font-weight: 400;
-  src: local("Lora Italic"), local("Lora-Italic"),
-    url("../fonts/lora-v14-cyrillic-italic.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("../fonts/lora-v14-cyrillic-italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* lora-700italic - cyrillic */
-@font-face {
-  font-family: "Lora";
-  font-style: italic;
-  font-display: swap;
-  font-weight: 700;
-  src: local("Lora Bold Italic"), local("Lora-BoldItalic"),
-    url("../fonts/lora-v14-cyrillic-700italic.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("../fonts/lora-v14-cyrillic-700italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+h2 {
+  @apply text-2xl font-extrabold;
 }
 
-/* roboto-mono-700 - latin */
-@font-face {
-  font-family: "Roboto Mono";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local("Roboto Mono Bold"), local("RobotoMono-Bold"),
-    url("../fonts/roboto-mono-v7-latin-700.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("../fonts/roboto-mono-v7-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+h3 {
+  @apply text-xl font-bold;
 }
 
-/* montserrat-600 - latin */
-@font-face {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local("Montserrat SemiBold"), local("Montserrat-SemiBold"),
-    url("../fonts/montserrat-v14-latin-600.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("../fonts/montserrat-v14-latin-600.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+.brief-background {
+  background: var(--gradient);
+  transition: 300ms;
 }
 
-/* montserrat-600 - cyrillic */
-@font-face {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local("Montserrat SemiBold"), local("Montserrat-SemiBold"),
-    url("../fonts/montserrat-v14-cyrillic-600.woff2") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("../fonts/montserrat-v14-cyrillic-600.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+.brief-background:hover {
+  transform: scale(1.1);
+}
+
+.bg-gradient {
+  background: rgb(255, 174, 15);
+  background: linear-gradient(
+    138deg,
+    rgba(255, 174, 15, 1) 0%,
+    rgba(157, 12, 168, 1) 48%,
+    rgba(255, 36, 0, 1) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+article a,
+.fancy-link {
+  @apply relative;
+}
+
+article a::after,
+.fancy-link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -1px;
+  height: 0.5rem;
+  z-index: -1;
+  background: var(--auxbg);
+  transition: height 200ms;
+}
+
+article a:hover::after {
+  height: 1.5rem;
+}
+
+.fancy-link:hover::after {
+  height: 2rem;
 }
 
 .top-right {
@@ -146,7 +99,7 @@
 
 @media screen and (min-width: 768px) {
   .top-right {
-    top: 1.4rem;
+    top: 2rem;
     right: 7rem;
   }
 }
@@ -159,36 +112,15 @@
   clip-path: var(--clip);
 }
 
-h1 {
-  @apply text-4xl font-bold leading-9;
-}
-
-h2 {
-  @apply text-3xl font-extrabold leading-9;
-}
-
-h3 {
-  @apply text-xl font-bold leading-9 transition-color duration-500;
-}
-
-main {
-  @apply transition-color duration-500;
-}
-
 .heart {
-  width: 14px;
-  height: 14px;
   transform: rotate(-45deg);
-  @apply bg-pink-600;
+  @apply w-4 h-4 bg-red-500;
 }
 
 .heart::before,
 .heart::after {
   content: "";
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  @apply rounded-full bg-pink-600;
+  @apply absolute w-4 h-4 rounded-full bg-red-500;
 }
 
 .heart::before {
@@ -198,22 +130,6 @@ main {
 
 .heart::after {
   left: 7px;
-}
-
-article a,
-article + a,
-ul a,
-a.author {
-  @apply text-link inline-block border-solid border-b-2 border-red-300 duration-200;
-}
-
-a.author {
-  @apply border-none;
-}
-
-article + a:hover,
-article a:hover {
-  @apply border-red-600;
 }
 
 article p {
@@ -260,34 +176,9 @@ code {
   @apply text-sm;
 }
 
-ol,
-ul {
-  @apply pb-4;
-}
-
-a.anchor {
-  @apply border-none;
-}
-
-h3 a.anchor svg {
-  @apply fill-current;
-  @apply absolute;
-  visibility: visible;
-  top: 8px;
-  right: 15px;
-}
-
-h2 a.anchor svg {
-  @apply fill-current;
-  @apply absolute;
-  visibility: visible;
-  top: 40px;
-  right: 15px;
-}
-
 @variants hover {
   .svg {
-    fill: var(--link);
+    fill: var(--auxbg);
   }
 }
 
@@ -310,7 +201,7 @@ h2 a.anchor svg {
   width: 26px;
   height: 26px;
   position: relative;
-  box-shadow: inset 10px -10px 0 0 var(--aux);
+  box-shadow: inset 10px -10px 0 0 var(--auxtext);
   transform: scale(1) rotate(-2deg);
   transition: box-shadow 0.5s ease 0s, transform 0.4s ease 0.1s;
 }
@@ -335,21 +226,22 @@ h2 a.anchor svg {
   position: absolute;
   top: 50%;
   left: 50%;
-  box-shadow: 0 -14px 0 var(--aux), 0 14px 0 var(--aux), 14px 0 0 var(--aux),
-    -14px 0 0 var(--aux), 10px 10px 0 var(--aux), -10px 10px 0 var(--aux),
-    10px -10px 0 var(--aux), -10px -10px 0 var(--aux);
+  box-shadow: 0 -14px 0 var(--auxtext), 0 14px 0 var(--auxtext),
+    14px 0 0 var(--auxtext), -14px 0 0 var(--auxtext),
+    10px 10px 0 var(--auxtext), -10px 10px 0 var(--auxtext),
+    10px -10px 0 var(--auxtext), -10px -10px 0 var(--auxtext);
   transform: scale(0);
   transition: all 0.3s ease;
 }
 
 .themeSwitch input:checked + div {
-  box-shadow: inset 32px -32px 0 0 var(--aux);
+  box-shadow: inset 32px -32px 0 0 var(--auxtext);
   transform: scale(0.5) rotate(0deg);
   transition: transform 0.3s ease 0.1s, box-shadow 0.2s ease 0s;
 }
 
 .themeSwitch input:checked + div:before {
-  background: var(--aux);
+  background: var(--auxtext);
   transition: background 0.3s ease 0.1s;
 }
 

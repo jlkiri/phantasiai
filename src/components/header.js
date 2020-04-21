@@ -2,27 +2,41 @@ import React from "react"
 import { Link } from "gatsby"
 import Toggle from "components/Toggle"
 
-const Header = ({ title, isRoot, rootPath }) => {
-  const headerClass =
-    "font-extrabold leading-tight inline-block font-mono bg-gradient mb-3 lg:mb-0"
+const H1 = ({ children }) => (
+  <h1 className="lg:text-5xl font-extrabold inline-block font-mono bg-gradient mb-0 pt-4 pb-4">
+    {children}
+  </h1>
+)
 
+const FancyExternalLink = ({ children, href }) => {
+  return (
+    <a href={href} className="fancy-link">
+      {children}
+    </a>
+  )
+}
+
+const Header = ({ title, isRoot, rootPath }) => {
   if (isRoot)
     return (
-      <header className="pb-12 items-center justify-between lg:flex">
+      <header>
         <Link to={rootPath}>
-          <h1 className={headerClass}>{title}</h1>
+          <H1>{title}</H1>
         </Link>
-        <h3 className="font-serif text-aux font-bold">
-          Blog by Kirill Vasiltsov
-        </h3>
+        <h2 className="lg:text-3xl pt-2 pb-2 font-serif text-auxtext font-bold">
+          Blog by{" "}
+          <FancyExternalLink href="https://twitter.com/maaiiya8">
+            Kirill Vasiltsov
+          </FancyExternalLink>
+        </h2>
         <Toggle />
       </header>
     )
 
   return (
-    <header className="pb-8">
+    <header>
       <Link to={rootPath}>
-        <h2 className={headerClass}>{title}</h2>
+        <H1>{title}</H1>
       </Link>
       <Toggle />
     </header>

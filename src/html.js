@@ -21,6 +21,10 @@ export default function HTML(props) {
         />
         <link href="https://twitter.com/maaiiya8" rel="me" />
         <link href="https://github.com/jlkiri" rel="me" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Source+Code+Pro:wght@700&display=swap"
+          rel="stylesheet"
+        />
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
