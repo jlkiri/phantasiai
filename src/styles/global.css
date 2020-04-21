@@ -4,17 +4,25 @@
 
 :root {
   --bg: white;
-  --text: #000000;
-  --auxbg: #ec6e00;
-  --auxtext: #000000;
+  --text: black;
+  --auxbg: rgb(255, 179, 0);
+  --auxtext: #353535;
+  --gradient: linear-gradient(
+    159deg,
+    var(--auxbg) 74%,
+    rgb(249, 246, 246) 74.1%
+  );
   --clip: circle(0% at 0% 0%);
   @apply subpixel-antialiased;
 }
 
 [data-theme="dark"] {
   --text: white;
+  --article-text: whitesmoke;
   --bg: #182026;
-  --auxbg: #ff9b42;
+  --auxbg: rgb(93, 152, 170);
+  --auxtext: #e4e4e4;
+  --gradient: linear-gradient(159deg, rgb(49, 57, 62) 74%, var(--auxbg) 74.1%);
   --clip: circle(75%);
 }
 
@@ -25,11 +33,11 @@ h3 {
 }
 
 h1 {
-  @apply text-5xl font-extrabold;
+  @apply text-3xl font-extrabold;
 }
 
 h2 {
-  @apply text-3xl font-extrabold;
+  @apply text-2xl font-extrabold;
 }
 
 h3 {
@@ -37,12 +45,12 @@ h3 {
 }
 
 .brief-background {
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    159deg,
-    rgba(255, 255, 255, 1) 74%,
-    rgba(255, 153, 111, 1) 74.1%
-  );
+  background: var(--gradient);
+  transition: 300ms;
+}
+
+.brief-background:hover {
+  transform: scale(1.1);
 }
 
 .bg-gradient {
@@ -58,6 +66,32 @@ h3 {
   -webkit-text-fill-color: transparent;
 }
 
+article a,
+.fancy-link {
+  @apply relative;
+}
+
+article a::after,
+.fancy-link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -1px;
+  height: 0.5rem;
+  z-index: -1;
+  background: var(--auxbg);
+  transition: height 200ms;
+}
+
+article a:hover::after {
+  height: 1.5rem;
+}
+
+.fancy-link:hover::after {
+  height: 2rem;
+}
+
 .top-right {
   top: 1.4rem;
   right: 2rem;
@@ -65,7 +99,7 @@ h3 {
 
 @media screen and (min-width: 768px) {
   .top-right {
-    top: 1.4rem;
+    top: 2rem;
     right: 7rem;
   }
 }
@@ -80,13 +114,13 @@ h3 {
 
 .heart {
   transform: rotate(-45deg);
-  @apply w-4 h-4 bg-pink-600;
+  @apply w-4 h-4 bg-red-500;
 }
 
 .heart::before,
 .heart::after {
   content: "";
-  @apply absolute w-4 h-4 rounded-full bg-pink-600;
+  @apply absolute w-4 h-4 rounded-full bg-red-500;
 }
 
 .heart::before {
@@ -96,11 +130,6 @@ h3 {
 
 .heart::after {
   left: 7px;
-}
-
-article a,
-ul a {
-  @apply inline-block border-solid border-b-2 border-red-300 duration-200;
 }
 
 article p {
@@ -147,11 +176,6 @@ code {
   @apply text-sm;
 }
 
-ol,
-ul {
-  @apply pb-4;
-}
-
 @variants hover {
   .svg {
     fill: var(--link);
@@ -177,7 +201,7 @@ ul {
   width: 26px;
   height: 26px;
   position: relative;
-  box-shadow: inset 10px -10px 0 0 var(--aux);
+  box-shadow: inset 10px -10px 0 0 var(--auxtext);
   transform: scale(1) rotate(-2deg);
   transition: box-shadow 0.5s ease 0s, transform 0.4s ease 0.1s;
 }
@@ -202,21 +226,22 @@ ul {
   position: absolute;
   top: 50%;
   left: 50%;
-  box-shadow: 0 -14px 0 var(--aux), 0 14px 0 var(--aux), 14px 0 0 var(--aux),
-    -14px 0 0 var(--aux), 10px 10px 0 var(--aux), -10px 10px 0 var(--aux),
-    10px -10px 0 var(--aux), -10px -10px 0 var(--aux);
+  box-shadow: 0 -14px 0 var(--auxtext), 0 14px 0 var(--auxtext),
+    14px 0 0 var(--auxtext), -14px 0 0 var(--auxtext),
+    10px 10px 0 var(--auxtext), -10px 10px 0 var(--auxtext),
+    10px -10px 0 var(--auxtext), -10px -10px 0 var(--auxtext);
   transform: scale(0);
   transition: all 0.3s ease;
 }
 
 .themeSwitch input:checked + div {
-  box-shadow: inset 32px -32px 0 0 var(--aux);
+  box-shadow: inset 32px -32px 0 0 var(--auxtext);
   transform: scale(0.5) rotate(0deg);
   transition: transform 0.3s ease 0.1s, box-shadow 0.2s ease 0s;
 }
 
 .themeSwitch input:checked + div:before {
-  background: var(--aux);
+  background: var(--auxtext);
   transition: background 0.3s ease 0.1s;
 }
 
