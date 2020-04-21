@@ -178,7 +178,7 @@ code {
 
 @variants hover {
   .svg {
-    fill: var(--link);
+    fill: var(--auxbg);
   }
 }
 
