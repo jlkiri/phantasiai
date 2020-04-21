@@ -2,7 +2,7 @@ import React from "react"
 import PageLayout from "components/layouts/PageLayout"
 import PostBriefLayout from "components/layouts/PostBriefLayout"
 import { graphql } from "gatsby"
-import Seo from "components/Seo"
+import Seo from "components/seo"
 import Bio from "components/Bio"
 import { GlobalCSSLayout } from "components/layouts/GlobalCSSLayout"
 

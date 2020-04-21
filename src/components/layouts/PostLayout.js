@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import Bio from "../Bio"
 
 const getMentionText = mention => {

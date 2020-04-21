@@ -1,6 +1,6 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import Header from "components/Header"
+import Header from "components/header"
 import CenteredLayout from "./CenteredLayout"
 
 const titleQuery = graphql`
