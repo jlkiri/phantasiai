@@ -25,3 +25,4 @@ collections:
           options: ["en", "ru"],
         }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list" }
