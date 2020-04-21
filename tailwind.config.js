@@ -4,18 +4,19 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        header: ["Montserrat", ...defaultTheme.fontFamily.sans],
-        mono: ["Roboto Mono", ...defaultTheme.fontFamily.mono],
-        serif: ["Lora", ...defaultTheme.fontFamily.serif]
+        header: ["Georgia", ...defaultTheme.fontFamily.serif],
+        mono: ["Source Code Pro", ...defaultTheme.fontFamily.mono],
+        postHeader: ["Georgia", ...defaultTheme.fontFamily.serif],
+        sans: ["Open Sans", ...defaultTheme.fontFamily.sans]
       },
       transitionProperty: {
         color: "color"
       },
       colors: {
-        secondary: `var(--secondary)`,
-        primary: `var(--primary)`,
-        link: `var(--link)`,
-        aux: `var(--aux)`,
+        bg: `var(--bg)`,
+        text: `var(--text)`,
+        auxbg: `var(--auxbg)`,
+        auxtext: `var(--auxtext)`,
         codeBg: `var(--codeBg)`,
         gray: {
           100: "#EAEBEC",

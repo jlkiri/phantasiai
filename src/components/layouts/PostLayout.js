@@ -56,16 +56,13 @@ const PostLayout = ({ title, path, date, mentions, html }) => {
     <>
       <main className="pb-4">
         <div className="pb-8">
-          <h1 className="font-serif pb-4">{title}</h1>
-          <span className="font-bold font-serif">{date}</span>
+          <h1 className="font-postHeader pb-4">{title}</h1>
+          <span className="font-bold font-mono">{date}</span>
         </div>
         <article
-          className="font-serif text-lg"
+          className="font-sans text-lg"
           dangerouslySetInnerHTML={{ __html: html }}
         />
-        <Link className="mb-8" to={rootPath}>
-          {"<<< Back to top page"}
-        </Link>
         <Mentions mentions={mentions} />
       </main>
       <Bio />

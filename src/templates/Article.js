@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import PageLayout from "components/layouts/PageLayout"
 import PostLayout from "components/layouts/PostLayout"
-import SEO from "components/seo"
+import SEO from "components/Seo"
 import { GlobalCSSLayout } from "components/layouts/GlobalCSSLayout"
 
 export default function Article({ data, path }) {
