@@ -3,6 +3,8 @@ title: Drawing a line between Merge and recursion
 date: "2019-12-01"
 spoiler: Merge is not really recursive.
 language: en
+tags:
+  - linguistics
 ---
 
 This post was motivated by two recent papers: one [by Martins & Boeckx](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000389) and another [by Berwick & Chomsky](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000539).

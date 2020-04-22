@@ -6,7 +6,7 @@ import Seo from "components/seo"
 import Bio from "components/Bio"
 import { GlobalCSSLayout } from "components/layouts/GlobalCSSLayout"
 
-const BlogIndex = ({ data, path }) => {
+const TagIndex = ({ data, path }) => {
   const { nodes: posts } = data.allMarkdownRemark
   const { siteMetadata } = data.site
 
@@ -33,9 +33,9 @@ const BlogIndex = ({ data, path }) => {
 }
 
 export const indexQuery = graphql`
-  query PostLinks {
+  query TaggedPosts($tag: String!) {
     allMarkdownRemark(
-      filter: { frontmatter: { language: { eq: "en" } } }
+      filter: { frontmatter: { tags: { in: [$tag] }, language: { eq: "en" } } }
       sort: { order: DESC, fields: frontmatter___date }
     ) {
       nodes {
@@ -44,10 +44,10 @@ export const indexQuery = graphql`
           slug
         }
         frontmatter {
-          tags
           title
           date(formatString: "MMMM DD, YYYY")
           spoiler
+          tags
         }
       }
     }
@@ -59,4 +59,4 @@ export const indexQuery = graphql`
   }
 `
 
-export default BlogIndex
+export default TagIndex
