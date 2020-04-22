@@ -22,6 +22,7 @@ const TagIndex = ({ data, path }) => {
               title={post.frontmatter.title}
               date={post.frontmatter.date}
               spoiler={post.frontmatter.spoiler}
+              tags={post.frontmatter.tags}
             />
           ))}
         </main>
@@ -46,6 +47,7 @@ export const indexQuery = graphql`
           title
           date(formatString: "MMMM DD, YYYY")
           spoiler
+          tags
         }
       }
     }

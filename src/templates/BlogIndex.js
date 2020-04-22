@@ -10,8 +10,6 @@ const BlogIndex = ({ data, path }) => {
   const { nodes: posts } = data.allMarkdownRemark
   const { siteMetadata } = data.site
 
-  console.log(posts.map(p => p.frontmatter.tags))
-
   return (
     <GlobalCSSLayout>
       <PageLayout blogTitle={siteMetadata.title} path={path}>

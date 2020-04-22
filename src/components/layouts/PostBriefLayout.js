@@ -2,8 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 
 const Tag = ({ text }) => (
-  <div className="p-2 ml-2 first:m-0 text-white bg-gray-600 rounded-lg text-xs inline-block">
-    {text}
+  <div className="py-1 px-2 ml-2 first:m-0 text-white bg-tag rounded-lg text-xs inline-block">
+    <Link to={text}>{text}</Link>
   </div>
 )
 

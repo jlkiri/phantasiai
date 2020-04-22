@@ -15,6 +15,7 @@ module.exports = {
       colors: {
         bg: `var(--bg)`,
         text: `var(--text)`,
+        tag: `var(--tag)`,
         auxbg: `var(--auxbg)`,
         auxtext: `var(--auxtext)`,
         codeBg: `var(--codeBg)`
