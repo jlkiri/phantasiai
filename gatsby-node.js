@@ -55,13 +55,12 @@ exports.createPages = async ({ actions, graphql }) => {
   })
 
   const allTags = new Set(
-    data.allMarkdownRemark.edges
-      .map(({ node }) => node.frontmatter.tags)
-      .flat()
-      .filter(Boolean)
+    data.allMarkdownRemark.edges.map(({ node }) => node.frontmatter.tags)
   )
 
-  for (const tag of allTags) {
+  const flattenedTags = [].concat(...allTags).filter(Boolean)
+
+  for (const tag of flattenedTags) {
     actions.createPage({
       path: `/${tag}`,
       component: path.resolve(`src/templates/TagIndex.js`),
