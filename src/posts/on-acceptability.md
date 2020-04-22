@@ -3,6 +3,8 @@ title: On acceptability
 date: "2019-02-19"
 spoiler: What even is acceptability and why does it matter?
 language: en
+tags:
+  - linguistics
 ---
 
 A lot of research in linguistics relies on the notion of _acceptability_. During my work, I sometimes need to ask my non-linguist friends whether they think some sentence is acceptable or not. And most of the time they reply with another question: “Acceptable with respect to what?”. I repeatedly found myself unable to immediately give a satisfying answer. So I decided to write about it.

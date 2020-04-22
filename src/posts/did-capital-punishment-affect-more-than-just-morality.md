@@ -3,6 +3,8 @@ title: Did capital punishment affect more than just morality?
 date: "2019-02-23"
 spoiler: Perhaps, language?
 language: en
+tags:
+  - ethics
 ---
 
 [This article](https://www.newyorker.com/books/under-review/did-capital-punishment-create-morality) on New Yorker is a review of a new book by Richard Wrangham. I haven't read the book, but as far as the review goes, it offers a really fresh view on the origin of virtue and its peculiar relation to human violence.

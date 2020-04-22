@@ -9,6 +9,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       basePath: "src/posts"
     })
 
+    console.log(relativeFilePath)
+
     actions.createNodeField({
       node,
       name: "slug",
@@ -33,6 +35,7 @@ exports.createPages = async ({ actions, graphql }) => {
             }
             frontmatter {
               language
+              tags
             }
           }
         }
@@ -51,6 +54,21 @@ exports.createPages = async ({ actions, graphql }) => {
     context: { language: "en" }
   })
 
+  const allTags = new Set(
+    data.allMarkdownRemark.edges
+      .map(({ node }) => node.frontmatter.tags)
+      .flat()
+      .filter(Boolean)
+  )
+
+  for (const tag of allTags) {
+    actions.createPage({
+      path: `/${tag}`,
+      component: path.resolve(`src/templates/TagIndex.js`),
+      context: { tag, language: "en" }
+    })
+  }
+
   actions.createPage({
     path: "/ru",
     component: path.resolve(`src/templates/BlogIndex.js`),
@@ -59,6 +77,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   data.allMarkdownRemark.edges.forEach(({ node }) => {
     const fullPath = data.site.siteMetadata.siteUrl + node.fields.slug
+
     actions.createPage({
       path: node.fields.slug,
       component: path.resolve(`src/templates/Article.js`),

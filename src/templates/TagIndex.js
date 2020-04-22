@@ -6,11 +6,9 @@ import Seo from "components/seo"
 import Bio from "components/Bio"
 import { GlobalCSSLayout } from "components/layouts/GlobalCSSLayout"
 
-const BlogIndex = ({ data, path }) => {
+const TagIndex = ({ data, path }) => {
   const { nodes: posts } = data.allMarkdownRemark
   const { siteMetadata } = data.site
-
-  console.log(posts.map(p => p.frontmatter.tags))
 
   return (
     <GlobalCSSLayout>
@@ -24,7 +22,6 @@ const BlogIndex = ({ data, path }) => {
               title={post.frontmatter.title}
               date={post.frontmatter.date}
               spoiler={post.frontmatter.spoiler}
-              tags={post.frontmatter.tags}
             />
           ))}
         </main>
@@ -35,9 +32,9 @@ const BlogIndex = ({ data, path }) => {
 }
 
 export const indexQuery = graphql`
-  query PostLinks($language: String!) {
+  query TaggedPosts($tag: String!) {
     allMarkdownRemark(
-      filter: { frontmatter: { language: { eq: $language } } }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
       sort: { order: DESC, fields: frontmatter___date }
     ) {
       nodes {
@@ -46,7 +43,6 @@ export const indexQuery = graphql`
           slug
         }
         frontmatter {
-          tags
           title
           date(formatString: "MMMM DD, YYYY")
           spoiler
@@ -61,4 +57,4 @@ export const indexQuery = graphql`
   }
 `
 
-export default BlogIndex
+export default TagIndex

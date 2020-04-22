@@ -3,6 +3,8 @@ title: "Poverty of Stimulus (POS) Argument: Part 1"
 date: "2019-02-28"
 spoiler: If you think you know how children acquire language, think again.
 language: en
+tags:
+  - linguistics
 ---
 
 This is my own take on perhaps the most frequently misunderstood argument in the history of linguistics. What makes this argument amazing is that understanding it doesn't require _any_ knowledge of linguistics. Yet, I think it is one of the most important insights in the whole history of linguistics. Much of what is written here is not particularly _new_, and some great posts (and comments) about the argument can be found on the [Faculty of Language](http://facultyoflanguage.blogspot.com/) blog. However, writing something yourself is always a great way to gain a deeper understanding of some problem.

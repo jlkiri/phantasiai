@@ -3,6 +3,9 @@ title: How to implement Dark theme with CSS and Javascript
 date: "2019-09-23"
 spoiler: The simplest way to implement Dark theme on your website
 language: en
+tags:
+  - programming
+  - css
 ---
 
 Good user experience often implies being able to customize the way users interact with your website and adjusting your website to their preferences.

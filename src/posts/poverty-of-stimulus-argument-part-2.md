@@ -3,6 +3,8 @@ title: "Poverty of Stimulus (POS) Argument: Part 2"
 date: "2019-03-12"
 spoiler: Does the argument withstand empirical evidence?
 language: en
+tags:
+  - linguistics
 ---
 
 In part 1, I showed how one might come to the conclusion that children never even try to make certain generalizations about the language data they receive. Note that the conclusion does not go beyond what is implied by the premises that we looked at in the previous post. I try to avoid saying anything confusing like _rules of grammar are innate_ or _grammar is in our genes_ as much as possible, simply because it does not follow from the logic of the POS argument alone. Whether (and how much of) our knowledge of language is _innate_ is an empirical problem and must be solved by interdisciplinary research, which includes linguistics, evolutionary biology and neurology.

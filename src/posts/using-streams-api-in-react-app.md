@@ -3,6 +3,9 @@ title: Using Streams API in React applications
 date: "2019-10-21"
 spoiler: On what to take care of during implentation
 language: en
+tags:
+  - programming
+  - react
 ---
 
 UPDATE: I fixed a bug in the previous version of code
