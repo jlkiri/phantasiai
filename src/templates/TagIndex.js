@@ -35,7 +35,7 @@ const TagIndex = ({ data, path }) => {
 export const indexQuery = graphql`
   query TaggedPosts($tag: String!) {
     allMarkdownRemark(
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      filter: { frontmatter: { tags: { in: [$tag] }, language: { eq: "en" } } }
       sort: { order: DESC, fields: frontmatter___date }
     ) {
       nodes {

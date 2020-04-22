@@ -33,9 +33,9 @@ const BlogIndex = ({ data, path }) => {
 }
 
 export const indexQuery = graphql`
-  query PostLinks($language: String!) {
+  query PostLinks {
     allMarkdownRemark(
-      filter: { frontmatter: { language: { eq: $language } } }
+      filter: { frontmatter: { language: { eq: "en" } } }
       sort: { order: DESC, fields: frontmatter___date }
     ) {
       nodes {

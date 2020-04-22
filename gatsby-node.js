@@ -9,8 +9,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       basePath: "src/posts"
     })
 
-    console.log(relativeFilePath)
-
     actions.createNodeField({
       node,
       name: "slug",
@@ -67,12 +65,6 @@ exports.createPages = async ({ actions, graphql }) => {
       context: { tag, language: "en" }
     })
   }
-
-  actions.createPage({
-    path: "/ru",
-    component: path.resolve(`src/templates/BlogIndex.js`),
-    context: { language: "ru" }
-  })
 
   data.allMarkdownRemark.edges.forEach(({ node }) => {
     const fullPath = data.site.siteMetadata.siteUrl + node.fields.slug
