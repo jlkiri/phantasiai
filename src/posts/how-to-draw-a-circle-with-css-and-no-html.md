@@ -25,11 +25,11 @@ You may already know how to make [hard color stops](https://css-tricks.com/snipp
 }
 ```
 
-This is literally all you need. In this example, a circle will appear right in the center of some existing HTML element that has a class `with-circle`. You do not need to create a new `<div>` with `border-radius: 50%` - which is [how circles are usually created](https://codesandbox.io/s/html-circle-wix0k).
-If one color stops at 45% and another begins at 45%, then there is no room for what is called interpolation - filling in the missing colors by the browser. 
+This is literally all you need. In this example, a circle will appear right in the center of some existing HTML element that has a class `with-circle`. You do not need to create a new `<div>` with `border-radius: 50%` - which is [how circles are usually created](https://codesandbox.io/s/html-circle-wix0k). If one color stops at 45% and another begins at 45%, then there is no room for what is called interpolation - filling in the missing colors by the browser. 
 
 You can play with different values here:
 
+```
 <iframe
      src="https://codesandbox.io/embed/gradient-only-circle-ys3nf?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fstyles.css&theme=dark"
      style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
@@ -37,9 +37,14 @@ You can play with different values here:
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
+```
 
-You might wonder why I wrote `45.1%` instead of `45%` for the start value of the second color? The reason is that 
+You might wonder why I chose `45.1%` instead of `45%` for the start value of the second color? The reason is that if both are the same, the browser does not make a smooth transition between colors and you can see the pixelated border. Here are two zoomed-in versions of the same circle:
 
-Why would you choose this approach over others? I find this useful when you 
+|45%|45.1%|
+|-----|----|
+|![pixelated](/assets/roughedge.png)|![smooth](/assets/smoothedge.png)|
 
+## Advantages
 
+Why would you choose this approach over others? I find this useful when you
