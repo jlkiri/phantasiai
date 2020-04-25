@@ -1,12 +1,13 @@
 ---
 title: How to draw a circle with CSS and no HTML
 date: 2020-04-24T08:00:18.495Z
-spoiler: Simple circle with CSS
+spoiler: A simple but handy approach.
 language: en
 tags:
   - css
   - programming
 ---
+
 If you ever find yourself needing to draw a circle with pure CSS and not a single line of HTML - I've got you covered.
 
 The answer is very simple: [radial-gradient](https://developer.mozilla.org/en-US/docs/Web/CSS/radial-gradient).
@@ -25,7 +26,7 @@ You may already know how to make [hard color stops](https://css-tricks.com/snipp
 }
 ```
 
-This is literally all you need. In this example, a circle will appear right in the center of some existing HTML element that has a class `with-circle`. You do not need to create a new `<div>` with `border-radius: 50%` - which is [how circles are usually created](https://codesandbox.io/s/html-circle-wix0k). If one color stops at 45% and another begins at 45%, then there is no room for what is called interpolation - filling in the missing colors by the browser. 
+This is literally all you need. In this example, a circle will appear right in the center of some existing HTML element that has a class `with-circle`. You do not need to create a new `<div>` with `border-radius: 50%` - which is [how circles are usually created](https://codesandbox.io/s/html-circle-wix0k). If one color stops at 45% and another begins at 45%, then there is no room for what is called interpolation - filling in the missing colors by the browser.
 
 You can play with different values here:
 
@@ -40,9 +41,11 @@ You can play with different values here:
 You might wonder why I chose `45.1%` instead of `45%` as the start value of the second color? The reason is that if both are the same, some browsers (like Chrome) do not make a smooth transition between colors and you can see the pixelated border, which is not nice. Here are two zoomed-in versions of the same circle:
 
 ### 45%
+
 ![pixelated](/assets/roughedge.png)
 
 ### 45.1%
+
 ![smooth](/assets/smoothedge.png)
 
 ## Comparison to other approaches
