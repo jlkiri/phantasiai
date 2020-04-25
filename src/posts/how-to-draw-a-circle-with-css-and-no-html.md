@@ -29,7 +29,6 @@ This is literally all you need. In this example, a circle will appear right in t
 
 You can play with different values here:
 
-```
 <iframe
      src="https://codesandbox.io/embed/gradient-only-circle-ys3nf?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fstyles.css&theme=dark"
      style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
@@ -37,14 +36,39 @@ You can play with different values here:
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
-```
 
-You might wonder why I chose `45.1%` instead of `45%` for the start value of the second color? The reason is that if both are the same, the browser does not make a smooth transition between colors and you can see the pixelated border. Here are two zoomed-in versions of the same circle:
+You might wonder why I chose `45.1%` instead of `45%` as the start value of the second color? The reason is that if both are the same, some browsers (like Chrome) do not make a smooth transition between colors and you can see the pixelated border, which is not nice. Here are two zoomed-in versions of the same circle:
 
-|45%|45.1%|
-|-----|----|
-|![pixelated](/assets/roughedge.png)|![smooth](/assets/smoothedge.png)|
+### 45%
+![pixelated](/assets/roughedge.png)
 
-## Advantages
+### 45.1%
+![smooth](/assets/smoothedge.png)
 
-Why would you choose this approach over others? I find this useful when you
+## Comparison to other approaches
+
+Why would you choose the `radial-gradient` approach over others? First of all, as you may have noticed you automatically get a centered circle. On the other hand, you have to actually do more work to make it not centered with something like `background-position`.
+
+I think this is mostly useful when you need a plain circle and it is not supposed to be interacted with. In other words, its only function is being a background, which is what the CSS property name suggests. This is true especially if you want to stack circles like in the example below:
+
+<iframe
+     src="https://codesandbox.io/embed/gradient-only-circles-stacked-5r990?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fstyles.css&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="gradient-only-circles-stacked"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+
+Notice how you don't have to create a single DOM node.
+
+`radial-gradient` can also be very handy if you need to animate circles. Here's how you can just animate `background-position` to get a nice effect of floating circles (hover on circle):
+
+<iframe
+     src="https://codesandbox.io/embed/gradient-only-circles-animated-mct5r?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fstyles.css&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="gradient-only-circles-animated"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+
+That's pretty much it. You should also check out other nice CSS approaches to creating all sorts of shapes, like [clip-path](https://css-tricks.com/clipping-masking-css/).
