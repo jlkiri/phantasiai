@@ -78,7 +78,7 @@ function SEO({ description, index, slug, meta, title, lang = "en" }) {
         },
         {
           name: `twitter:image`,
-          content: `${url}/twitter_card.jpg`
+          content: `${url}twitter_card.jpg`
         },
         {
           name: `twitter:image:alt`,
