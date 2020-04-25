@@ -25,6 +25,20 @@ module.exports = {
         plugins: [
           "gatsby-remark-smartypants",
           {
+            resolve: `gatsby-remark-twitter-cards`,
+            options: {
+              title: "phantasia[i]", // website title
+              separator: "|", // default
+              author: "Kirill Vasiltsov",
+              background: require.resolve("./src/assets/social_card_3.png"), // path to 1200x630px file or hex code, defaults to black (#000000)
+              fontColor: "#ffffff", // defaults to white (#ffffff)
+              titleFontSize: 96, // default
+              subtitleFontSize: 60, // default
+              fontStyle: "monospace" // default
+              // fontFile: require.resolve("./assets/fonts/someFont.ttf") // will override fontStyle - path to custom TTF font
+            }
+          },
+          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 735

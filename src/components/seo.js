@@ -70,7 +70,19 @@ function SEO({ description, index, slug, meta, title, lang = "en" }) {
         },
         {
           name: `twitter:card`,
-          content: `summary`
+          content: `summary_large_image`
+        },
+        {
+          name: `twitter:site`,
+          content: siteMetadata.social.twitter
+        },
+        {
+          name: `twitter:image`,
+          content: `${url}/twitter_card.jpg`
+        },
+        {
+          name: `twitter:image:alt`,
+          content: title || siteMetadata.title
         },
         {
           name: "twitter:creator",
