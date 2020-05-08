@@ -22,7 +22,7 @@ And this is how it works:
 
 ![Story GIF](/assets/story.gif)
 
-This way we can keep building more \[custom hooks](https://reactjs.org/docs/hooks-custom.html) and utilize their ability to be composed.
+This way we can keep building more [custom hooks](https://reactjs.org/docs/hooks-custom.html) and utilize their ability to be composed.
 
 Sometimes, some things, like fetching arbitrary data (and/or loading states) cannot be replaced with knobs. In this case it is still enough to provide some constant mock response with a fake hook that can be injected. And that's it!
 
