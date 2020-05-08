@@ -28,7 +28,7 @@ Sometimes, some things, like fetching arbitrary data (and/or loading states) can
 
 ## Used code
 
-```
+```jsx
 // TextButton.stories.js
 
 import React from "react";
