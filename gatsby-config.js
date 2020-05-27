@@ -30,7 +30,7 @@ module.exports = {
               title: "phantasia[i]", // website title
               separator: "|", // default
               author: "Kirill Vasiltsov",
-              background: require.resolve("./src/assets/social_card_3.png"), // path to 1200x630px file or hex code, defaults to black (#000000)
+              background: require.resolve("./src/assets/social_card.png"), // path to 1200x630px file or hex code, defaults to black (#000000)
               fontColor: "#ffffff", // defaults to white (#ffffff)
               titleFontSize: 96, // default
               subtitleFontSize: 60, // default
