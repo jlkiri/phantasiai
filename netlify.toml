@@ -2,4 +2,4 @@
   from = "/*"
   to = "https://www.kirillvasiltsov.com/writing/:splat"
   status = 301
-  force = false
+  force = true
